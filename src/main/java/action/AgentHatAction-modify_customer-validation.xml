@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+"-//Apache Struts//XWork Validator 1.0.2//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="customs.customName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="customName.null" />
+		</field-validator>
+	</field>
+	<field name="customs.customType">
+		<field-validator type="fieldexpression">
+			<param name="expression"> (customs.customType!="-1")</param>
+			<message key="customType.min" />
+		</field-validator>
+	</field>
+	<field name="customs.bossName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="bossName.null" />
+		</field-validator>
+	</field>
+	<field name="customs.cardType">
+		<field-validator type="fieldexpression">
+			<param name="expression"> (customs.cardType!="-1")</param>
+			<message key="cardType.min" />
+		</field-validator>
+	</field>
+	<field name="customs.cardNum">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="cardNum.null" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(\d{15}|\d{18})]]></param>
+			<message key="cardNum.regex"/>
+		</field-validator>
+	</field>
+	<field name="customs.province">
+		<field-validator type="fieldexpression">
+			<param name="expression"> (customs.province!="-1")</param>
+			<message key="province.min" />
+		</field-validator>
+	</field>
+	<field name="customs.city">
+		<field-validator type="fieldexpression">
+			<param name="expression"> (customs.city!="-1")</param>
+			<message key="city.min" />
+		</field-validator>
+	</field>
+	<field name="customs.companyTel">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="companyTel.null" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)]]></param>
+			<message key="companyTel.regex" />
+		</field-validator>
+	</field>
+	<field name="customs.companyFax">
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)]]></param>
+			<message key="companyFax.regex" />
+		</field-validator>
+	</field>
+	<field name="customs.area">
+		<field-validator type="fieldexpression">
+			<param name="expression"> (customs.area!="-1")</param>
+			<message key="area.min" />
+		</field-validator>
+	</field>
+</validators>
+

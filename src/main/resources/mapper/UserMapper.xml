@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="dao.UserDao">
+
+<select id="login" parameterType="string" resultType="entity.User">	
+	select * from as_user where userCode = #{usercode,jdbcType=VARCHAR} and userPassword = #{password,jdbcType=VARCHAR}
+</select>
+
+<update id="pModify" >
+	update as_user set userPassword = #{newpwd},salt=#{salt} where id = #{id}
+</update>
+
+<update id="lastLogin">
+	update as_user set lastLoginTime = Sysdate() where id = #{id}
+</update>
+
+<!-- 代理商余额 -->
+<select id="balance" resultMap="balanceMap">
+	select
+		u.id as userid,
+		u.userName as userName,
+		a.id as aid,
+		a.money as money
+	from as_user u
+		inner join as_account a on u.id = a.userId
+</select>
+
+	<select id="selectUserByusercode" parameterType="string" resultType="entity.User">
+		select * from as_user where userCode = #{usercode,jdbcType=VARCHAR}
+	</select>
+<resultMap type="entity.User" id="balanceMap">
+	<id property="id" column="userid" />
+	<result property="userName" column="userName"/>
+	<association property="account" column="userId" javaType="entity.Account" >
+		<id property="id" column="aid" />
+		<result property="money" column="money"/>
+	</association>
+</resultMap>
+</mapper>

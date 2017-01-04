@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UsermaDao">
+	<!-- 显示所有用户 -->
+	<resultMap type="entity.User" id="userBean">
+		<id column="id" property="id" />
+		<result column="createdBy" property="createdBy" />
+		<result column="creationTime" property="creationTime" />
+		<result column="isStart" property="isStart" />
+		<result column="lastLoginTime" property="lastLoginTime" />
+		<result column="lastUpdateTime" property="lastUpdateTime" />
+		<result column="userCode" property="userCode" />
+		<result column="userName" property="userName" />
+		<result column="userPassword" property="userPassword" />
+		<!-- 多对一的关系 -->
+		<!-- property: 指的是属性的值, javaType：指的是属性的类型 -->
+		<association property="role" javaType="entity.Role">
+			<id column="id" property="id" />
+			<result column="createdBy" property="createdBy" />
+			<result column="creationTime" property="creationTime" />
+			<result column="isStart" property="isStart" />
+			<result column="lastUpdateTime" property="lastUpdateTime" />
+			<result column="roleName" property="roleName" />
+		</association>
+	</resultMap>
+	<select id="userlist" resultMap="userBean">
+		select as_user.*,as_role.rolename from
+		as_user inner join as_role on as_role.id = as_user.roleid where 1=1 
+		<if test="userName!=null">
+			 and as_user.userName like #{userName} 
+		</if>
+		<if test="roleid!=0">
+			 and as_user.roleid =#{roleid} 
+		</if>
+		<if test="isStart!=2">
+			 and as_user.isStart =#{isStart} 
+		</if>
+		LIMIT #{lineNum},#{pageSize}
+	</select>
+	<select id="num" resultType="int">
+		select count(1) from(select as_user.*,as_role.rolename from
+		as_user inner join as_role on as_role.id = as_user.roleid where 1=1 
+		<if test="userName!=null">
+			 and as_user.userName like #{userName} 
+		</if>
+		<if test="roleid!=0">
+			 and as_user.roleid =#{roleid} 
+		</if>
+		<if test="isStart!=2">
+			 and as_user.isStart =#{isStart} 
+		</if>
+		) a
+	</select>
+	<!-- 增加用户 -->
+	<insert id="addUser" parameterType="entity.User" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		as_user(userCode,userName,userPassword,creationTime,lastLoginTime,createdBy,lastUpdateTime,isStart,roleid,salt)
+		values(#{userCode},#{userName},#{userPassword},#{creationTime},#{lastLoginTime},#{createdBy},#{lastUpdateTime},#{isStart},#{role.id},#{salt})
+	</insert>
+	
+	<!-- 修改用户 -->
+	<update id="modifyUser" parameterType="entity.User">
+		update as_user set salt=#{salt},userCode=#{userCode},userName=#{userName},userPassword=#{userPassword},roleid=#{role.id},isStart=#{isStart},lastUpdateTime=#{lastUpdateTime} where id=#{id}
+	</update>
+	<!-- 删除用户-->
+	<delete id="delUser" parameterType="int">
+		delete as_user where id=#{id}
+	</delete>
+	<!-- 查询用户-->
+	<select id="user" parameterType="int" resultType="entity.User">
+		select * from as_user where id=#{id}
+	</select>
+	
+	<select id="findUsers" resultType="entity.User">
+	select * from as_user where 1=1 
+		<if test="userName!=null">
+			 and userName like #{userName} 
+		</if>
+		<if test="roleid!=null">
+			 and roleid =#{roleid} 
+		</if>
+		<if test="isStart!=null">
+			 and isStart =#{isStart} 
+		</if>
+	</select>
+</mapper>

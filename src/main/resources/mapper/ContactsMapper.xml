@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ContactsDao">
+	<insert id="addContacts" parameterType="entity.Contacts">
+		insert into as_contacts
+		values(#{id},
+		#{customId},#{contactName},#{contactTel},#{contactFax},#{contactEmail},#{contactRole}
+		)
+	</insert>
+	<update id="modifyContacts" parameterType="entity.Contacts">
+	update as_contacts set contactName=#{contactName},contactTel=#{contactTel},contactFax=#{contactFax},
+	contactEmail=#{contactEmail},contactRole=#{contactRole} 
+	where id=#{id}
+	</update>
+	
+	<select id="findList" resultType="entity.Contacts" parameterType="int">
+	select * from as_contacts where customId=#{id} order by id
+	</select>
+	
+	<delete id="deleteContact" parameterType="int">
+	delete from as_contacts where id=#{id}
+	</delete>
+	
+</mapper>

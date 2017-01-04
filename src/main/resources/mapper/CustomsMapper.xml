@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.CustomsDao">
+	<select id="likefind" resultType="entity.Customs">
+	select * from as_customs 
+	where 1=1 
+	<if test="name!=null">
+	and customname like #{name}
+	</if>
+	ORDER BY id DESC
+		LIMIT #{lineNum},#{pageSize}
+	</select>
+	
+	<select id="count" resultType="int" parameterType="String">
+		select count(1) from as_customs 
+		where
+		1=1
+		<if test="name!=null">
+			and customname like #{name}
+		</if>
+	</select>
+	
+	<insert id="addCus" parameterType="entity.Customs" useGeneratedKeys="true" keyProperty="id">
+		insert into as_customs
+		values(#{id},
+		#{agentId},#{agentName},#{customName},#{customType},#{customTypeName},#{siteUrl},#{customStatus},
+		#{bossName},#{cardType},#{cardTypeName},#{cardNum},#{companyTel},#{companyFax},#{regDatetime},#{country},#{province},
+		#{city},#{area},#{companyAddress},#{memo},#{agentCode}
+		)
+	</insert>
+	
+	<update id="modifyCus" parameterType="entity.Customs">
+	update as_customs set customName=#{customName},customType=#{customType},customTypeName=#{customTypeName},
+	siteUrl=#{siteUrl},customStatus=#{customStatus},bossName=#{bossName},cardType=#{cardType},cardTypeName=#{cardTypeName},
+	cardNum=#{cardNum},companyTel=#{companyTel},companyFax=#{companyFax},regDatetime=#{regDatetime},country=#{country},
+	province=#{province},city=#{city},area=#{area},companyAddress=#{companyAddress},memo=#{memo} 
+	where id=#{id}
+	</update>
+	
+	<select id="findone" resultType="entity.Customs" parameterType="int">
+	select * from as_customs where id=#{id} 
+	</select>
+	
+	<update id="state">
+	update as_customs set customStatus=#{customStatus} where id=#{id}
+	</update>
+	
+	<select id="likeCus" resultType="entity.Customs" parameterType="string">
+	select * from as_customs 
+	where 1=1 
+	<if test="name!=null">
+	and customname like #{name}
+	</if>
+	</select>
+</mapper>

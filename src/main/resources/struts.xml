@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 开发者模式 项目 发布上线请禁用 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 去除struts后缀 -->
+	<constant name="struts.action.extension" value="," />
+	<!-- <constant name="struts.ui.theme" value="style" /> -->
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.custom.i18n.encoding" value="utf-8" />
+	<!-- 指定 struts2使用spring的IoC容器(只有当整个项目存在多个IoC容器的时候) -->
+	<!-- <constant name="struts.objectFactory" value="spring" /> -->
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<interceptors>
+			<!-- 定义拦截器 -->
+			<interceptor name="userlogin" class="interceptot.LoginInterceptor" />
+			<interceptor name="authority" class="interceptot.AuthorizationInterceptor" />
+			
+			<!-- 定义一个拦截栈 -->
+			<interceptor-stack name="comStack">
+				<!-- 登录拦截器 -->
+				<interceptor-ref name="userlogin">
+					<param name="excludeMethods">login,system</param>
+				</interceptor-ref>
+				<!-- 权限拦截器 -->
+				<interceptor-ref name="authority">
+					<param name="includeMethods">execute,keywords_application,pageList,prepay,getKeywodsList,see_logs,getPortal,showReport,
+					financial, rolema,roleau,userma,keywordsCheck,show2,showSTOrAA
+					</param>
+				</interceptor-ref>
+				<!-- 默认拦截器 -->
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 设置全局拦截器栈 -->
+		<default-interceptor-ref name="comStack" />
+		
+		<global-results>
+			<result name="login" type="redirect">/html/transfer_login.jsp</result>
+			<result name="error" type="redirect">/html/transfer_error.jsp</result>
+		</global-results>
+		
+		<action name="system" class="userAction" method="system">
+			<result>login.jsp</result>
+		</action>
+
+		<action name="login" class="userAction" method="login">
+			<result>main.jsp</result>
+			<result name="input">login.jsp</result>
+		</action>
+		<action name="loginOut" class="userAction" method="loginOut">
+			<result type="redirect">html/login.jsp</result>
+		</action>
+		<action name="pModify" class="userAction" method="pModify">
+			<result type="redirect">html/login.jsp</result>
+			<result name="input">main.jsp</result>
+		</action>
+		<action name="index" class="userAction" method="index">
+			<result>Amanage.jsp</result>
+		</action>
+		<!-- 显示账户明细 -->
+		<action name="showDetail" class="accountdetailAction" method="showDetail">
+			<result>accountDetail.jsp</result>
+		</action>
+		<!-- 代理商预付款 -->
+		<action name="prepay" class="accountdetailAction" method="prepay">
+			<result>agentPrepay.jsp</result>
+		</action>
+		<!-- 门户管理 -->
+		<action name="getPortal" class="portalAction" method="getPortal">
+			<result>portalManager.jsp</result>
+		</action>
+		<!-- 查看门户 -->
+		<action name="portalView" class="portalAction" method="portalView">
+			<result>portalView.jsp</result>
+		</action>
+		<action name="portalModify" class="portalAction" method="portalView">
+			<result>portalModify.jsp</result>
+		</action>
+		<!-- 修改门户 -->
+		<action name="portalUpdate" class="portalAction" method="portalUpdate">
+			<result type="redirectAction">html/getPortal</result>
+		</action>
+		<!-- 报表管理页面显示 -->
+		<action name="showReport" class="reportAction" method="showReport">
+			<result>reportManager.jsp</result>
+		</action>
+		<!-- 报表管理 -->
+		<action name="getReport" class="reportAction" method="getReport">
+			<result name="balance">report/balance.jsp</result>
+			<result name="preRunning">report/preRunning.jsp</result>
+			<result name="agentRunning">report/agentRunning.jsp</result>
+			<result name="categories">report/proCategories.jsp</result>
+			<result name="input">reportManager.jsp</result>
+		</action>
+		<action name="exportExcel" class="reportAction" method="exportExcel">
+			 <result name="success" type="stream">  
+                <!-- 下载文件的类型，如果你不知道是什么格式，可以去 tomcat\conf\web.xml下找 -->  
+                <param name="contentType">application/vnd.ms-excel</param>  
+                <!-- 返回流 excelStream为action中的流变量名称 -->  
+                <param name="inputName">excelStream</param>  
+                <param name="contentDisposition">  
+                    attachment;filename=${excelFileName}  
+                </param>  
+                <param name="bufferSize">1024</param>  
+            </result>  
+		</action>
+		<!-- 关键词管理页面 -->
+		<action name="keywordsList" class="keywordsManagerAction"
+			method="getKeywodsList">
+			<result>keywordsManager.jsp</result>
+		</action>
+		<!-- 关键词app开通页面信息 -->
+		<action name="showKey" class="keywordsManagerAction" method="showKey">
+			<result>app.jsp</result>
+		</action>
+		<!-- 开通app -->
+		<action name="openApp" class="keywordsManagerAction" method="openApp">
+			<result>successApp.jsp</result>
+		</action>
+		<!-- 续费页面信息 -->
+		<action name="showKey2" class="keywordsManagerAction" method="showKey2">
+			<result>renew.jsp</result>
+		</action>
+		<!-- 续费操作 -->
+		<action name="renew" class="keywordsManagerAction" method="renew">
+			<result>successRenew.jsp</result>
+		</action>
+		<!-- 关键词审核页面 -->
+		<action name="keywordsCheck" class="keywordsManagerAction" method="getKeywodsList">
+			<result>keywordsre.jsp</result>
+		</action>
+	</package>
+	<!-- 角色管理 -->
+	<package name="Rolema" namespace="/" extends="default">
+		<action name="rolema" class="action.RolemaAction" method="rolema">
+			<result name="success">rolema.jsp</result>
+		</action>
+		<action name="addRole" class="action.RolemaAction" method="addRole">
+			<result name="success" type="redirect">html/rolema</result>
+			<result name="input" type="redirect">html/rolema</result>
+		</action>
+		<action name="modifyRole" class="action.RolemaAction" method="modifyRole">
+			<result name="success" type="redirect">html/rolema</result>
+			<result name="input" type="redirect">html/rolema</result>
+		</action>
+		<action name="delRole" class="action.RolemaAction" method="delRole">
+			<result name="success" type="redirect">html/rolema</result>
+			<result name="input" type="redirect">html/rolema</result>
+		</action>
+	</package>
+	<!-- 角色权限管理 -->
+	<package name="Roleau" namespace="/" extends="default">
+		<action name="roleau" class="action.RoleauAction" method="roleau">
+			<result name="success">roleau.jsp</result>
+		</action>
+	</package>
+	<!-- 角色权限列表 -->
+	<package name="Featurelist" namespace="/" extends="default">
+		<action name="featurelist" class="action.FeaturelistAction"
+			method="featurelist">
+			<result name="success">featurelist.jsp</result>
+		</action>
+		<action name="permission" class="action.FeaturelistAction"
+			method="permission">
+			<result name="success">html/jump.jsp</result>
+		</action>
+	</package>
+	<!-- 用户管理 -->
+	<package name="Userma" namespace="/" extends="default">
+		<action name="userma" class="action.UsermaAction" method="userma">
+			<result name="success">userma.jsp</result>
+		</action>
+		<action name="addUser" class="action.UsermaAction" method="addUser">
+			<result name="success" type="redirect">html/userma</result>
+		</action>
+		<action name="delUser" class="action.UsermaAction" method="delUser">
+			<result name="success" type="redirect">html/userma</result>
+		</action>
+		<action name="updateUser" class="action.UsermaAction" method="updateUser">
+			<result name="success" type="redirect">html/userma</result>
+		</action>
+	</package>
+
+	<package name="Agent" namespace="/" extends="default">
+		<!-- 财务管理 -->
+		<action name="financial" class="action.FinancialAction">
+			<result name="success">financial.jsp</result>
+		</action>
+		<!-- 财务管理提交 -->
+		<action name="sub_financial" class="action.FinancialAction" method="addfinancial">
+			<result name="success">financial.jsp</result>
+			<result name="input">financial.jsp</result>
+		</action>
+		<!-- 显示添加页面 -->
+		<action name="add_cus" class="action.AgentHatAction" method="show_add">
+			<result>add_customer.jsp</result>
+		</action>
+		<!-- 客户添加页面 -->
+		<action name="add" class="action.AgentHatAction" method="add">
+			<result type="redirect">html/pageList</result>
+			<result name="input">add_customer.jsp</result>
+		</action>
+		<!-- 客户分页显示页面 -->
+		<action name="pageList" class="action.AgentHatAction" method="pageList">
+			<result>acustomer_manage.jsp</result>
+			<result name="input">acustomer_manage.jsp</result>
+		</action>
+		<!-- 显示修改页面 -->
+		<action name="modify_cus" class="action.AgentHatAction" method="modify_show">
+			<result>modify_customer.jsp</result>
+		</action>
+		<!-- 提交修改页面 -->
+		<action name="modify_customer" class="action.AgentHatAction"
+			method="modify">
+			<result type="redirect">html/pageList</result>
+			<result name="input">modify_customer.jsp</result>
+		</action>
+		<!-- 显示查看页面 -->
+		<action name="see_cus" class="action.AgentHatAction" method="modify_show">
+			<result>see_customer.jsp</result>
+		</action>
+		<!-- 显示关键词申请页面 -->
+		<action name="keywords_application" class="action.AgentKeyAction">
+			<result>keywords_application.jsp</result>
+		</action>
+		<action name="keywords_add" class="action.AgentKeyAction"
+			method="key_add">
+			<result type="redirect">html/keywordsList</result>
+			<result name="input">keywords_application.jsp</result>
+		</action>
+		<!-- 查看日志 -->
+		<action name="loglist" class="action.AgentLogsAction" method="see_logs">
+			<result>logs.jsp</result>
+		</action>
+	</package>
+
+	<package name="josn_default" extends="json-default">
+		<action name="city" class="action.AgentHatAction" method="findcity">
+			<result type="json">
+				<param name="root">citys</param>
+			</result>
+		</action>
+		<action name="selectRole" class="action.RolemaAction" method="selectRole">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<action name="selectUser" class="action.UsermaAction" method="selectUser">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<action name="area" class="action.AgentHatAction" method="findarea">
+			<result type="json">
+				<param name="root">areas</param>
+			</result>
+		</action>
+		<!-- 删除联系人 -->
+		<action name="delcontact" class="action.AgentHatAction" method="delete_contact">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<!-- 状态开启关闭 -->
+		<action name="open" class="action.AgentHatAction" method="state">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<!-- 模糊查询客户 -->
+		<action name="findcus" class="action.AgentKeyAction" method="findCus">
+			<result type="json">
+				<param name="root">customs</param>
+			</result>
+		</action>
+		<!-- 查询关键词 -->
+		<action name="findkey" class="action.AgentKeyAction" method="findKey">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<!-- 查找syso相关 -->
+		<action name="findsys" class="action.AgentKeyAction" method="find_sys">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<!-- 模糊查询用户 -->
+		<action name="finduser" class="action.FinancialAction" method="findUsers">
+			<result type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
+		<!-- 关键词审核操作 -->
+		<action name="check" class="keywordsCheckAction" method="check">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<!-- 关键词审核操作弹出框 -->
+		<action name="msgOut" class="keywordsCheckAction" method="msgOut">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="system_config" namespace="/" extends="default">
+		<!-- 财务类型 -->
+		<action name="financialType" class="action.SystemConfigAction"
+			method="show2">
+			<result>financialType.jsp</result>
+		</action>
+		<!-- 服务类型 -->
+		<action name="serviceType" class="action.SystemConfigAction"
+			method="show2">
+			<result>serviceType.jsp</result>
+		</action>
+		<action name="serviceTime" class="action.SystemConfigAction"
+			method="showSTOrAA">
+			<result>serviceTime.jsp</result>
+		</action>
+		<action name="appAddress" class="action.SystemConfigAction"
+			method="showSTOrAA">
+			<result>appAddress.jsp</result>
+		</action>
+		<action name="clientType" class="action.SystemConfigAction"
+			method="show2">
+			<result>clientType.jsp</result>
+		</action>
+		<action name="credentialsType" class="action.SystemConfigAction"
+			method="show2">
+			<result>credentialsType.jsp</result>
+		</action>
+		<action name="preferentialType" class="action.SystemConfigAction"
+			method="show2">
+			<result>preferentialType.jsp</result>
+		</action>
+		<!-- 删除系统配置 -->
+		<!-- 删除财务类型 -->
+		<action name="deleteSystemConfig" class="action.SystemConfigAction"
+			method="deleteSystemConfig">
+			<result name="configType1" type="chain">
+				<param name="actionName">financialType</param>
+			</result>
+			<result name="configType2" type="chain">
+				<param name="actionName">serviceType</param>
+			</result>
+			<result name="configType5" type="chain">
+				<param name="actionName">clientType</param>
+			</result>
+			<result name="configType6" type="chain">
+				<param name="actionName">credentialsType</param>
+			</result>
+			<result name="configType7" type="chain">
+				<param name="actionName">preferentialType</param>
+			</result>
+		</action>
+		
+		<action name="addSystemConfig" class="action.SystemConfigAction"
+			method="addSystemConfig">
+			<result name="configType1" type="chain">
+				<param name="actionName">financialType</param>
+				<param name="configType">1</param>
+			</result>
+			<result name="configType2" type="chain">
+				<param name="actionName">serviceType</param>
+				<param name="configType">2</param>
+			</result>
+			<result name="configType5" type="chain">
+				<param name="actionName">clientType</param>
+				<param name="configType">5</param>
+			</result>
+			<result name="configType6" type="chain">
+				<param name="actionName">credentialsType</param>
+				<param name="configType">6</param>
+			</result>
+			<result name="configType7" type="chain">
+				<param name="actionName">preferentialType</param>
+				<param name="configType">7</param>
+			</result>
+			<result name="INPUT" type="chain">
+				<param name="actionName">financialType</param>
+				<param name="configType">1</param>
+			</result>
+		</action>
+		<action name="updateSystemconfig" class="action.SystemConfigAction"
+			method="updateSystemconfig">
+			<result name="configType3" type="chain">
+				<param name="actionName">serviceTime</param>
+				<param name="configType">3</param>
+			</result>
+			<result name="configType4" type="chain">
+				<param name="actionName">appAddress</param>
+				<param name="configType">4</param>
+			</result>
+			<result name="configType1" type="chain">
+				<param name="actionName">financialType</param>
+				<param name="configType">1</param>
+			</result>
+			<result name="configType2" type="chain">
+				<param name="actionName">serviceType</param>
+				<param name="configType">2</param>
+			</result>
+			<result name="configType5" type="chain">
+				<param name="actionName">clientType</param>
+				<param name="configType">5</param>
+			</result>
+			<result name="configType6" type="chain">
+				<param name="actionName">credentialsType</param>
+				<param name="configType">6</param>
+			</result>
+			<result name="configType7" type="chain">
+				<param name="actionName">preferentialType</param>
+				<param name="configType">7</param>
+			</result>
+			<result name="INPUT" type="chain">
+				<param name="actionName">financialType</param>
+				<param name="configType">1</param>
+			</result>
+			
+		</action>
+	</package>
+	<package name="josn_default2" extends="json-default">
+		<action name="showSystemConfig" class="action.SystemConfigAction"
+			method="showSystemConfig">
+			<result  type="json">
+				<param name="root">systemconfig</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.HatDao">
+	<select id="provinces" resultType="entity.Hat_province">
+		select * from hat_province
+	</select>
+	
+	<select id="citys" resultType="entity.Hat_city">
+		select * from hat_city where father=#{provinceId}
+	</select>
+	
+	<select id="areas" resultType="entity.Hat_area">
+		select * from hat_area where father=#{cityID}
+	</select>
+	<select id="pro" resultType="entity.Hat_province">
+	select * from hat_province where provinceId=#{provinceId}
+	</select>
+</mapper>

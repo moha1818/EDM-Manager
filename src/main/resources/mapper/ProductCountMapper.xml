@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.ProductCountDao">
+<select id="getCount"  resultType="entity.ProductCount">
+	 select
+	 	 rownum as id,configTypeName as typeName,count,money
+	 from  
+  		(select 
+  			tmp.configTypeName,count(0) as count,sum(tmp.price) as money
+  		 from 
+  		 	(select 
+  		 		a.price,s.configTypeName from as_keywords a
+  			 left join 
+  			 	as_systemconfig s on a.productType = s.configTypeValue
+ 			 where 
+ 			 	s.configType = 2 order by a.id
+ 			) tmp
+  		 group by 
+  			 tmp.configTypeName
+  		 )
+</select>
+</mapper>

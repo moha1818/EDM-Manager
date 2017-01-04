@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.RolemaDao">
+	<!-- 显示所有角色 -->
+	<select id="list" resultType="entity.Role">
+		select * from as_role order by id
+	</select>
+	<!-- 增加角色 -->
+	<insert id="addRole" parameterType="entity.Role">
+		insert into as_role (roleName,creationTime,createdBy,lastUpdateTime,isStart)
+			values (#{roleName},#{creationTime},#{createdBy},#{lastUpdateTime},#{isStart})
+	</insert>
+	<!-- 修改角色 -->
+	<update id="modifyRole" parameterType="entity.Role">
+		update as_role set roleName=#{roleName},isStart=#{isStart} where id=#{id}
+	</update>
+	<!-- 删除角色 -->
+	<delete id="delRole" parameterType="int">
+		delete as_role where id=#{id}
+	</delete>
+	<!-- 单个角色 -->
+	<select id="selectRole" parameterType="int" resultType="entity.Role">
+		select * from as_role where id=#{id}
+	</select>
+</mapper>

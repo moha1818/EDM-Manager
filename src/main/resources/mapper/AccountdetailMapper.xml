@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="dao.AccountdetailDao">
+
+<select id="showDetail" resultType="entity.Accountdetail">
+  	select * from as_accountdetail where userId = #{id}
+  	<if test="detailType!=0">
+  		and detailType = #{detailType}
+  	</if>
+  	<if test="start!=null">
+		and detailDateTime &gt;= #{start}
+	</if>
+	<if test="end!=null">
+		and detailDateTime &lt;= #{end}
+	</if>
+	order by id
+	LIMIT #{lineNum},#{pageSize}
+</select>
+<select id="detailCount" resultType="int">
+	select count(0) from  as_accountdetail where userId = #{id}
+	<if test="detailType!=0">
+  		and detailType = #{detailType}
+  	</if>
+  	<if test="start!=null">
+		and detailDateTime &gt;= #{start}
+	</if>
+	<if test="end!=null">
+		and detailDateTime &lt;= #{end}
+	</if>
+</select>
+
+<resultMap type="entity.Accountdetail" id="RunningMap">
+	<id property="id" column="id" />
+	<result property="money" column="money" />
+	<result property="accountMoney" column="accountMoney" />
+	<result property="memo" column="memo" />
+	<result property="detailDateTime" column="detailDateTime" />
+	<association property="user" column="userId" javaType="entity.User" >
+		<id property="id" column="userid" />
+		<result property="userName" column="userName" />
+	</association>
+</resultMap>
+<!-- 预付款流水报表 -->
+<select id="preRunning" resultMap="RunningMap">
+	select
+		a.id,
+		a.money,
+		a.accountMoney,
+		a.memo,
+		a.detailDateTime,
+		u.id as userid,
+		u.userName
+	from as_accountdetail a
+		inner join as_user u on a.userId = u.id
+	where a.detailType = 4
+		<if test="start!=null">
+		and a.detailDateTime &gt;= #{start}
+		</if>
+		<if test="end!=null">
+		and a.detailDateTime &lt;= #{end}
+		</if>
+	order by a.id	
+</select>
+<!-- 代理商流水报表 -->
+<select id="agentRunning" resultMap="RunningMap">
+		select
+		a.id,
+		a.money,
+		a.accountMoney,
+		a.memo,
+		a.detailDateTime,
+		u.id as userid,
+		u.userName
+	from as_accountdetail a
+		inner join as_user u on a.userId = u.id
+	where 1 = 1
+		<if test="start!=null">
+		and a.detailDateTime &gt;= #{start}
+		</if>
+		<if test="end!=null">
+		and a.detailDateTime &lt;= #{end}
+		</if>
+	order by a.id	
+</select>
+<insert id="addDetail" >
+insert into as_accountdetail values(#{id},#{userId},#{detailType},#{detailTypeName},#{money},#{accountMoney},#{memo},SYSDATE())
+</insert>
+</mapper>

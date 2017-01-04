@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="dao.PremissionDao">
+
+<select id="authorization" resultType="int">
+	select count(1) from as_function inner join as_role_premission on 
+	as_function.id=as_role_premission.functionid where as_role_premission.roleid=#{roleId} 
+	and as_function.functioncode=#{functionCode} 
+</select>
+
+</mapper>

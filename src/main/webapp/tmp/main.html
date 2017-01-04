@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/base.css" type="text/css" rel="stylesheet" />
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="script/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="script/main.js"></script>
+</head>
+<body>
+	<div class="head">
+		<div id="shortcut">
+			<div id="info">
+				欢迎您：张三 
+				<a class="modifypwd">修改密码</a> 
+				<a href="#">退出</a>
+			</div>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li onClick="menu(this)" id="p_1"><a href="#">代理商管理</a></li>
+			<li onClick="menu(this)" id="p_2"><a href="#">门户管理</a></li>
+			<li onClick="menu(this)" id="p_3"><a href="#">报表管理</a></li>
+			<li onClick="menu(this)" id="p_4"><a href="#">系统管理</a></li>
+			<li onClick="menu(this)" id="p_5"><a href="#">系统配置管理</a></li>
+		</ul>
+	</div>
+	<div class="submenu">
+		<ul class="smenu" id="c_1">
+			<li><a href="#">关键词申请</a></li>
+			<li><a href="#">代理商客户管理</a></li>
+			<li><a href="#">代理商预付款</a></li>
+			<li><a href="#">关键词申请管理</a></li>
+			<li><a href="#">操作日志</a></li>
+		</ul>
+		<ul class="smenu" id="c_2">
+			<li><a href="#">查看门户</a></li>
+			<li><a href="#">修改门户</a></li>
+		</ul>
+		<ul class="smenu" id="c_3">
+			<li><a href="#">报表管理</a></li>
+		</ul>
+		<ul class="smenu" id="c_4">
+			<li><a href="#">财务管理</a></li>
+			<li><a href="#">角色管理</a></li>
+			<li><a href="#">角色权限管理</a></li>
+			<li><a href="#">用户管理</a></li>
+			<li><a href="#">关键词审核</a></li>
+		</ul>
+		<ul class="smenu"  id="c_5">
+    		<li><a href="#">财务类型</a></li>
+       	 	<li><a href="#">服务类型</a></li>
+        	<li><a href="#">服务年限</a></li>
+        	<li><a href="#">app地址</a></li>
+        	<li><a href="#">客户类型</a></li>
+			<li><a href="#">证件类型</a></li>
+			<li><a href="#">优惠类型</a></li>
+    	</ul>
+	</div>
+	<div class="nav">
+		<a href="#">代理商管理</a> \ <a href="#">当前账户信息</a>
+	</div>
+	<iframe src="grid.html" width="99%" height="600px" frameborder="0" scrolling="no"></iframe>
+	<div class="foot">万里学院-计算机实验班</div>
+</body>
+</html>
