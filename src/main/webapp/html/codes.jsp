@@ -35,7 +35,8 @@
 		for (int i = 0; i < 4; i++) {
 			code[i] = arr.charAt(random.nextInt(arr.length()));
 		}
-		
+
+
 		// 在内存中生成一张图片
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		// 获得这张图片的画笔(句柄)
