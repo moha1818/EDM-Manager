@@ -30,7 +30,7 @@ p a{
 <p><span style="font-weight:bold">您好，您还未登录，系统将自动跳转到登录界面...</span>
 </p>
 				<script type="text/javascript">
-					setTimeout("window.parent.location.href='login.jsp'", 3000);
+					setTimeout("window.parent.location.href='logins.jsp'", 3000);
 				</script>
 	
 </div>
