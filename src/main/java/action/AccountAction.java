@@ -1,18 +1,18 @@
 package action;
 
-import java.util.Map;
-
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import entity.Account;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-
-import entity.Account;
-import entity.User;
 import service.impl.AccountServiceImpl;
+import utils.sendemail.EmailService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller(value="accountAction")
@@ -24,7 +24,10 @@ public class AccountAction  extends ActionSupport {
 	@Autowired
 	@Qualifier(value="accountServiceImpl")
 	private AccountServiceImpl accountServiceImpl;
-	
+
+	@Autowired
+	private EmailService emailService;
+
 	private Account account;
 	
 	public Account getAccount() {
@@ -44,5 +47,15 @@ public class AccountAction  extends ActionSupport {
 		return SUCCESS;
 	}
 
+	public String sendEmail(){
+		Map map=new HashMap();
+		map.put("emailcode",110);
+		try{
+			emailService.sendEmail(map,"verifyEmail.vm","mohaxs@foxmail.com","test");
+		}catch (Exception e){
+			return INPUT;
+		}
+		return SUCCESS;
+	}
  
 }
