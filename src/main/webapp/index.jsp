@@ -63,7 +63,7 @@
             <img src="html/images/2.png">
         </div>
         <div class="main-right">
-            <form id="loginForm" action="login" method="post">
+            <form id="loginForm" action="html/login" method="post">
                 <h4>用户登录</h4>            <!-- 注意分区-->
                 <div class="username">
                     <img src="html/images/3.png">
