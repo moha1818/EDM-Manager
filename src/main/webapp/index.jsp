@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,6 +8,12 @@
     <title>登录页面</title>
     <link rel="stylesheet" type="text/css" href="html/css/mains.css">
     <script type="text/javascript" src="html/js/jquery-1.8.3.min.js"></script>
+    <s:if test="msg!=null">
+        <script type="text/javascript">
+            var msg = "<s:property value='msg' />"
+            alert(msg);
+        </script>
+    </s:if>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".clickCode").click(function () {

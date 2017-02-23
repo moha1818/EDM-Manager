@@ -113,10 +113,14 @@ public class UserAction extends ActionSupport {
 	public String login(){
 		Map<String,Object> session=ActionContext.getContext().getSession();
 		if(session.get("user")==null){
-				if(usercode==null&&password==null){
+			User user;
+			if(usercode!=null&& !usercode.equals("") || password!=null && !password.equals("")){
+				user = userServiceImpl.login(usercode, password);
+			}else{
+				user=null;
+				msg = "登录账号密码不得为空";
 				return INPUT;
 			}
-		User user = userServiceImpl.login(usercode, password);
 		if(user==null){
 			msg = "登录失败，用户名或密码错误";
 			return INPUT;

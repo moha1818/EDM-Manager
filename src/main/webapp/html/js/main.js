@@ -42,7 +42,7 @@ function iFrameHeight() {
 $(function(){
 	$('#out').click(function(){
 		
-		if (confirm("你确定要退出吗吗？请确认")) {
+		if (confirm("你确定要退出吗？请确认")) {
 			return true;
 		} else {
 			return false;
