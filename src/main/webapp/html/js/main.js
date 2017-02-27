@@ -213,4 +213,18 @@ $(function(){
 		$('#n3').html('');
 	})
 })
+//下拉框
+$(document).ready(function(){
+    $(".Hui-userbar").mouseover(function(){
+        var hover=$(".dropDown_hover");
+        hover.addClass("hover");
+        hover.addClass("open");
+    })
+    $(".Hui-userbar").mouseout(function(){
+        var hover=$(".dropDown_hover");
+        hover.removeClass("hover");
+        hover.removeClass("open");
+    })
+})
+
 

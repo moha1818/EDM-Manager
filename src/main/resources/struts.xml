@@ -51,15 +51,15 @@
 		</action>
 
 		<action name="login" class="userAction" method="login">
-			<result>main.jsp</result>
+			<result>mains.jsp</result>
 			<result name="input">logins.jsp</result>
 		</action>
 		<action name="loginOut" class="userAction" method="loginOut">
-			<result type="redirect">html/logins.jsp</result>
+			<result>logins.jsp</result>
 		</action>
 		<action name="pModify" class="userAction" method="pModify">
 			<result type="redirect">html/logins.jsp</result>
-			<result name="input">main.jsp</result>
+			<result name="input">mains.jsp</result>
 		</action>
 		<action name="index" class="userAction" method="index">
 			<result>Amanage.jsp</result>

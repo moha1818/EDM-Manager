@@ -68,7 +68,7 @@
 			<s:hidden id="configTypeValue" value='' name="configTypeValue" />
 			<s:hidden id="isStart" value='' name="isStart" />
 			<s:hidden id="configType" value='' name="configType" />
-			<p align="center">服务年限管理-填写最大的服务年限</p>
+			<p align="center">店铺年限管理-填写最大的店铺租赁年限</p>
 			<hr color="  #C4C4C4" width="800px;" size="1px" />
 			<p align="center">
 				配置名称：

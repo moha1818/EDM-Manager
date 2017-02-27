@@ -1,31 +1,19 @@
 package action;
 
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import service.*;
 
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.Preparable;
-
-import entity.Account;
-import entity.Accountdetail;
-import entity.Customs;
-import entity.Keywords;
-import entity.Systemconfig;
-import entity.User;
-import service.AccountService;
-import service.AccountdetailService;
-import service.CustomsService;
-import service.KeywordsService;
-import service.LogsService;
-import service.SystemconfigService;
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller(value = "agentKeyAction")
 @Scope(scopeName = "prototype")
@@ -70,7 +58,7 @@ public class AgentKeyAction extends ActionSupport implements Preparable {
 			balance = "无法查询余额";
 		}
 		// 服务年限
-		sys_years = systemconfigServiceImpl.type(3, 1).get(0).getConfigTypeValue();
+		sys_years = Integer.parseInt(systemconfigServiceImpl.type(3, 1).get(0).getConfigValue());
 		// 服务类型
 		sys_type = systemconfigServiceImpl.type(2, 1);
 		// 优惠类型

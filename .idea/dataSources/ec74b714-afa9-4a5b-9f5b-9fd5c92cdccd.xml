@@ -535,7 +535,7 @@
     </column>
     <column id="126" parent="16" name="configValue">
       <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="127" parent="16" name="isStart">

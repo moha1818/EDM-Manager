@@ -69,7 +69,7 @@ $(document).ready(function(){
 			<s:hidden id="configTypeValue" value='' name="configTypeValue" />
 			<s:hidden id="isStart" value='' name="isStart" />
 			<s:hidden id="configType" value='' name="configType" />
-			<p align="center">APP URL管理-填写制作APP的系统的URL的地址</p>
+			<p align="center">店铺基URL管理-填写店铺的URL基地址</p>
 			<hr color="  #C4C4C4" width="800px;" size="1px" />
 			<p align="center">
 				配置名称：

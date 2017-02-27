@@ -190,10 +190,10 @@
 							<option value="<s:property value="#n.index+1"/>"><s:property
 									value="#n.index+1" /></option>
 						</s:iterator>
-						<s:iterator value="sys_discount" status="m">
+						<%--<s:iterator value="sys_discount" status="m">
 							<option value="<s:property value="sys_years+1+#m.index"/>"><s:property
 									value="configTypeName" /></option>
-						</s:iterator>
+						</s:iterator>--%>
 				</select> <input type="hidden" id="years" name="keywords.serviceYears" /></td>
 			</tr>
 			<tr>

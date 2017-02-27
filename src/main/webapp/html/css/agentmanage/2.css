@@ -4,7 +4,6 @@ Acustomer_manage;
 */
 
 body {
-    width: 1300px;
     margin: 40px;
     font-family: 'trebuchet MS', 'Lucida sans', Arial;
     font-size: 14px;
@@ -14,7 +13,7 @@ body {
 
 .bordered {
 	border-spacing: 0;
-	width: 1200px; 
+	width: 100%;
     border: solid #ccc 1px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -70,8 +69,8 @@ a{
 	position:absolute;
 	}
 #pager{
-	width:50%;
-	margin: 0px auto;
+	margin: 50px auto;
+	display: flex;
 }
 #pager ul{
 	margin: 30px auto;
@@ -111,7 +110,6 @@ form .sub{
 	position:absolute;}
 
 form div{
-	width:1150px;
 	padding:8px;
 	border: #CCC 1px solid;
 	margin:8px;
