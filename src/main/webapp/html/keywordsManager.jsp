@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
+	<script src="dist/js/zui.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var page = '<s:property value="#parameters.pageIndex"/>';
@@ -30,10 +32,10 @@
 		<div>
 			关键词：
 			<s:textfield name="keywordName" />
-			<input type="image" src="image/u46.png" class="sub" />
+			<a class="btn btn-primary btn-mini sub" href="javascript:void(0);">查询</a>
 		</div>
 	</form>
-	<table class="bordered">
+	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
 				<th>序号</th>
@@ -46,7 +48,7 @@
 				<th>申请到期状态</th>
 				<th>审核状态</th>
 				<th>使用状态</th>
-				<th>APP开通状态</th>
+				<th>手机端开通状态</th>
 				<th>操作</th>
 			</tr>
 		</thead>
@@ -86,12 +88,12 @@
 						<span style="color: #008000">已开通</span>
 					</s:if></td>
 				<td><s:if test="#k.checkStatus==2&&#k.openApp==0">
-						<a style="color: #0000FF" href="javascript:void(0);"
-							class="openApp">开通APP</a>
-						<a style="color: #0000FF" href="javascript:void(0);" class="renew">续费</a>
+					<a href="javascript:void(0);"
+					   class="btn btn-primary btn-mini openApp">开通手机端详情</a>
+						<a href="javascript:void(0);" class="btn btn-primary btn-mini renew">续费</a>
 						<input type="hidden" value="<s:property value="#k.keywords"/>" />
 					</s:if> <s:if test="#k.checkStatus==2&&#k.openApp==1">
-						<a style="color: #0000FF" href="javascript:void(0);" class="renew">续费</a>
+						<a href="javascript:void(0);" class="btn btn-primary btn-mini renew">续费</a>
 						<input type="hidden" value="<s:property value="#k.keywords"/>" />
 					</s:if> <s:if test="#k.checkStatus!=2">
 						<span style="color: #D3CCCC">无操作</span>

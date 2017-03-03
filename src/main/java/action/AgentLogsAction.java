@@ -1,18 +1,16 @@
 package action;
 
-import java.util.Map;
-
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import entity.Page;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-
-import entity.Page;
-import entity.User;
 import service.LogsService;
+
+import java.util.Map;
 @Controller(value = "agentLogsAction")
 @Scope(scopeName = "prototype")
 public class AgentLogsAction extends ActionSupport {
@@ -34,12 +32,7 @@ public class AgentLogsAction extends ActionSupport {
 			logsServiceImpl.addLogs("用户进行操作日志查看操作");
 		}
 		int pageSize = 10;
-		System.out.println(id);
-		if(id==null){
-			cusPage=logsServiceImpl.logs(pageSize, current,user.getId());
-		}else{
-			cusPage=logsServiceImpl.logs(pageSize, current,id);
-		}		
+		cusPage=logsServiceImpl.logs(pageSize, current);
 		return SUCCESS;
 	}
 	

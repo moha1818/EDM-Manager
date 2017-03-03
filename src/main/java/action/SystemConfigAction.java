@@ -1,19 +1,16 @@
 package action;
 
-import java.util.List;
-
+import com.opensymphony.xwork2.ActionSupport;
+import entity.Page;
+import entity.Systemconfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.ActionSupport;
-
-import entity.Page;
-import entity.Systemconfig;
-import entity.User;
 import service.LogsService;
 import service.SystemconfigService;
+
+import java.util.List;
 
 @Controller(value = "SystemConfigAction")
 @Scope(scopeName = "prototype")
@@ -136,12 +133,12 @@ public class SystemConfigAction extends ActionSupport {
 				return "configType1";
 			} else if (configType == 2) {
 				msg = "添加失败";
-				String info = "用户添加服务类型失败";
+				String info = "用户添加店铺类型失败";
 				logsServiceImpl.addLogs(info);
 				return "configType2";
 			} else if (configType == 5) {
 				msg = "添加失败";
-				String info = "用户添加客户类型失败";
+				String info = "用户添加企业类型失败";
 				logsServiceImpl.addLogs(info);
 				return "configType5";
 			} else if (configType == 6) {
@@ -168,12 +165,12 @@ public class SystemConfigAction extends ActionSupport {
 			return "configType1";
 		} else if (configType == 2) {
 			msg = "添加成功";
-			String info = "用户成功添加服务类型操作";
+			String info = "用户成功添加店铺类型操作";
 			logsServiceImpl.addLogs(info);
 			return "configType2";
 		} else if (configType == 5) {
 			msg = "添加成功";
-			String info = "用户成功添加客户类型操作";
+			String info = "用户成功添加企业类型操作";
 			logsServiceImpl.addLogs(info);
 			return "configType5";
 		} else if (configType == 6) {
@@ -216,7 +213,7 @@ public class SystemConfigAction extends ActionSupport {
 			return "configType1";
 		} else if (configType == 2) {
 			msg = "删除成功";
-			String info = "用户删除服务类型操作";
+			String info = "用户删除店铺类型操作";
 			logsServiceImpl.addLogs(info);
 			return "configType2";
 		} else if (configType == 5) {
@@ -226,7 +223,7 @@ public class SystemConfigAction extends ActionSupport {
 			return "configType5";
 		} else if (configType == 6) {
 			msg = "删除成功";
-			String info = "用户删除客户类型操作";
+			String info = "用户删除企业类型操作";
 			logsServiceImpl.addLogs(info);
 			return "configType6";
 		} else if (configType == 7) {
@@ -259,10 +256,10 @@ public class SystemConfigAction extends ActionSupport {
 			String info = "用户浏览财务类型配置";
 			logsServiceImpl.addLogs(info);
 		} else if (configType == 2) {
-			String info = "用户浏览服务类型配置";
+			String info = "用户浏览店铺类型配置";
 			logsServiceImpl.addLogs(info);
 		} else if (configType == 5) {
-			String info = "用户浏览客户类型配置";
+			String info = "用户浏览企业类型配置";
 			logsServiceImpl.addLogs(info);
 		} else if (configType == 6) {
 			String info = "用户浏览证件类型配置";
@@ -290,7 +287,7 @@ public class SystemConfigAction extends ActionSupport {
 		} catch (RuntimeException r) {
 			r.printStackTrace();
 			if (configType == 3) {
-				String info = "用户更新服务年限失败";
+				String info = "用户更新租赁年限失败";
 				logsServiceImpl.addLogs(info);
 				msg = "更新失败";
 				return "configType3";
@@ -305,12 +302,12 @@ public class SystemConfigAction extends ActionSupport {
 				msg = "更新失败";
 				return "configType1";
 			} else if (configType == 2) {
-				String info = "用户更新服务类型失败";
+				String info = "用户更新企业类型失败";
 				logsServiceImpl.addLogs(info);
 				msg = "更新失败";
 				return "configType2";
 			} else if (configType == 5) {
-				String info = "用户更新客户类型失败";
+				String info = "用户更新企业类型失败";
 				logsServiceImpl.addLogs(info);
 				msg = "更新失败";
 				return "configType5";
@@ -332,7 +329,7 @@ public class SystemConfigAction extends ActionSupport {
 			}
 			}
 		if (configType == 3) {
-			String info = "用户更新服务年限成功";
+			String info = "用户更新企业租赁年限成功";
 			logsServiceImpl.addLogs(info);
 			msg = "更新成功";
 			return "configType3";
@@ -347,12 +344,12 @@ public class SystemConfigAction extends ActionSupport {
 			msg = "更新成功";
 			return "configType1";
 		} else if (configType == 2) {
-			String info = "用户更新服务类型成功";
+			String info = "用户更新企业类型成功";
 			logsServiceImpl.addLogs(info);
 			msg = "更新成功";
 			return "configType2";
 		} else if (configType == 5) {
-			String info = "用户更新客户类型成功";
+			String info = "用户更新企业类型成功";
 			logsServiceImpl.addLogs(info);
 			msg = "更新成功";
 			return "configType5";

@@ -81,7 +81,7 @@
                     <input type="password" name="password" class="password" placeholder="密码"/><br/>
                 </div>
                 <div class="vcode">
-                    <a href="javascript:void(0);" class="clickCode">
+                    <a href="javascript:void(0);" class="clickCode" tabindex="-1">
                         <img class="vcodeleft" src="html/images/updateIcon.png">
                     </a><input type="text" name="code" class="validateCode" placeholder="验证码"/>
                     <div>

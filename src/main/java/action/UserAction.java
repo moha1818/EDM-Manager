@@ -3,6 +3,7 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Account;
+import entity.Logs;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,6 +14,7 @@ import service.impl.AccountServiceImpl;
 import service.impl.UserServiceImpl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Controller(value="userAction")
@@ -43,7 +45,8 @@ public class UserAction extends ActionSupport {
 	private String msg2;
 	private Date lastLoginT;
 	private String code;
-	
+	private List<Logs> logs;
+
 	public String getCode() {
 		return code;
 	}
@@ -105,6 +108,13 @@ public class UserAction extends ActionSupport {
 		this.password = password;
 	}
 
+	public void setLogs(List<Logs> logs) {
+		this.logs = logs;
+	}
+
+	public List<Logs> getLogs() {
+		return logs;
+	}
 
 	public String system(){
 		return SUCCESS;
@@ -132,7 +142,7 @@ public class UserAction extends ActionSupport {
 		}
 		session.put("user", user);
 		}
-		String info = "用户进行登录操作操作成功";
+		String info = "登录系统";
 		logsServiceImpl.addLogs(info);
 		
 		return SUCCESS;
@@ -175,6 +185,8 @@ public class UserAction extends ActionSupport {
 		account = accountServiceImpl.getAccount(user.getId());
 		//修改上次登录时间为当前时间
 		userServiceImpl.lastLogin(user.getId());
+
+		logs=logsServiceImpl.allLogs();
 
 		return SUCCESS;
 	}

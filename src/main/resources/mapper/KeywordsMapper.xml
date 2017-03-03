@@ -257,7 +257,7 @@
 	
 	<!-- 关键词续费 -->
 	<update id="renew">
-		update as_keywords set regPassDatetime = add_months(regPassDatetime,12*#{years}) 
+		update as_keywords set regPassDatetime = DATE_ADD(regPassDatetime, INTERVAL 12*#{years} MONTH)
 		where id = #{kid}
 	</update>
 	<!-- 修改审核状态 -->

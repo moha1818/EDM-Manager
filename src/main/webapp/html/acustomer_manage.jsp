@@ -7,9 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/agentmanage.js"></script>
+	<script src="dist/js/zui.js"></script>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');
@@ -42,18 +45,19 @@ window.onload = function(){
 	<form id="head1" action="pageList" method="get">
 		<span>客户名称：</span>
 		<s:textfield name="name" />
-		<input type="image" src="image/u46.png" class="sub" />
+		<a class="btn btn-primary btn-mini sub" href="javascript:void(0);">查询</a>
 	</form>
 	<div id="u2">
-		<a href="javascript:void(0);" id="add"> <img src="image/addcustomeru2.png" />
-		</a>
+		<%--<a href="javascript:void(0);" id="add"> <img src="image/addcustomeru2.png" />
+		</a>--%>
+		<a class="btn btn-primary"  href="javascript:void(0);" id="add"><i class="icon icon-plus-sign"></i>添加企业</a>
 	</div>
-	<table class="bordered">
+	<table class="table table-hover table-bordered">
 		<thead>
 
 			<tr>
 				<th>序号</th>
-				<th>客户名称</th>
+				<th>企业名称</th>
 				<th>法人代表</th>
 				<th>注册时间</th>
 				<th>类型</th>
@@ -70,20 +74,22 @@ window.onload = function(){
 				<td><s:date name="regDatetime" format="yyyy-MM-dd" /></td>
 				<td><s:property value="customTypeName" /></td>
 				<td><s:if test="customStatus==1">
-						<span style="color: green">启用</span>
+					<span class="label label-badge label-success">启用</span>
 					</s:if> <s:else>
-						<span style="color: red">停用</span>
+					<span class="label label-badge label-warning">停用</span>
 					</s:else></td>
-				<td><a href="see_cus?id=<s:property value="id" />" id="see">查看</a> <a
-					href="modify_cus?id=<s:property value="id" />" id="upd">修改</a> <a
-					href="javascript:void(0);" id="cli"
-					onclick="confir(this,<s:property value="id" />)"> <s:if
-							test="customStatus==1">
-							<span style="color: red">停用</span>
-						</s:if> <s:else>
-							<span style="color: green">启用</span>
+				<td><a class="btn btn-sm" href="see_cus?id=<s:property value="id" />" id="see">查看</a>
+					<a class="btn btn-sm btn-primary" href="modify_cus?id=<s:property value="id" />" id="upd">修改</a>
+					<a class="btn btn-sm <s:if test="customStatus==1">btn-danger</s:if><s:else>btn-success</s:else>"
+					   href="javascript:void(0);" id="cli" onclick="confir(this,<s:property value="id" />)">
+						<s:if test="customStatus==1">
+							<span>停用</span>
+						</s:if>
+						<s:else>
+							<span>启用</span>
 						</s:else>
-				</a></td>
+					</a>
+				</td>
 			</tr>
 		</s:iterator>
 	</table>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import service.LogsService;
 
+import java.util.List;
 import java.util.Map;
 @Service(value="logsServiceImpl")
 public class LogsServiceImpl implements LogsService {
@@ -27,13 +28,18 @@ public class LogsServiceImpl implements LogsService {
 		logsDao.addlogs(log);
 	}
 	@Override
-	public Page logs(int pageSize, int pageIndex,int userId) {
+	public Page logs(int pageSize, int pageIndex) {
 		Page p=new Page();
 		p.setPageIndex(pageIndex);
 		p.setPageSize(pageSize);
-		p.setTotalCount(logsDao.logsline(userId));
-		p.setList(logsDao.logs(p.getLineNum(), pageSize,userId));
+		p.setTotalCount(logsDao.logsline());
+		p.setList(logsDao.logs(p.getLineNum(), pageSize));
 		return p;
+	}
+
+	@Override
+	public List<Logs> allLogs() {
+		return logsDao.allLogs();
 	}
 
 }

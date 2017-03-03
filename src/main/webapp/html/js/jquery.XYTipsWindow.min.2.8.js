@@ -16,7 +16,7 @@ $(function() {
 	$(".openApp").click(function(){
 		var name = $(this).next().next(':input').val();
 		$.XYTipsWindow({
-			___title:"开通【"+name+"】APP",
+			___title:"【"+name+"】开通手机详情页",
 			___content:"iframe:showKey?keywordName="+name,
 			___width:"480",
 			___height:"250",

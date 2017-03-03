@@ -170,11 +170,11 @@
 					name="keywords.customId" id="cusId"></td>
 			</tr>
 			<tr>
-				<td>关键词：</td>
+				<td>店铺名称：</td>
 				<td><input type="text" id="key" name="keywords.keywords" /><span></span></td>
 			</tr>
 			<tr>
-				<td>服务类别：</td>
+				<td>店铺类型：</td>
 				<td><s:select name="keywords.productType" list="sys_type"
 						id="u2_input" onchange="count(%{sys_years})" headerKey="0"
 						headerValue="——请选择——" listKey="configTypeValue"
@@ -182,7 +182,7 @@
 					</s:select></td>
 			</tr>
 			<tr>
-				<td>服务年限：</td>
+				<td>店铺租赁年限：</td>
 				<td><select id="u3_input"
 					onchange="count(<s:property value="sys_years"/>)">
 						<option value="0">——请选择——</option>
@@ -202,8 +202,7 @@
 					readonly="true" style="background: #CCCCCC" /></td>
 			</tr>
 			<tr>
-				<td><input type="image" src="image/u8.png"
-					onclick="return compare()" /></td>
+				<td><input type="submit" onclick="return compare()">
 			</tr>
 
 		</table>

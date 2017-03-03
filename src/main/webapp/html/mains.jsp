@@ -38,7 +38,7 @@
 <body>
 <header class="Hui-header cl">
 	<div class="copyrights">
-		<a class="Hui-logo l" href="#"><img src="image/title.png" height="40"></a>
+		<a class="Hui-logo l" href="login"><img src="image/title.png" height="40"></a>
 		<span class="Hui-subtitle l">V1.0</span>
 	</div>
 	<ul class="Hui-userbar">
@@ -60,14 +60,14 @@
 			<li class="nav-parent"><a href="javascript:;"><i class="icon-list-ul"></i>企业管理</a>
 				<ul class="nav" id="c_1">
 					<li id="i2"><a href="pageList" target="inside">企业客户管理</a></li>
-					<li id="i4"><a href="keywordsList" target="inside">企业店铺名申请列表</a></li>
 				</ul>
 			</li>
 			<li class="nav-parent"><a href="javascript:;"><i class="icon icon-sitemap"></i>企业店铺管理</a>
 				<ul class="nav" id="c_2">
 					<li id="i1"><a href="keywords_application" target="inside">店铺名申请</a></li>
-					<li id="i3"><a href="prepay" target="inside">店铺申请预付款</a></li>
 					<li id="i10"><a href="keywordsCheck" target="inside">企业店铺审核</a></li>
+					<li id="i4"><a href="keywordsList" target="inside">企业店铺名申请列表</a></li>
+					<li id="i3"><a href="prepay" target="inside">店铺申请预付款</a></li>
 				</ul>
 			</li>
 			<li class="nav-parent"><a href="javascript:;"><i class="icon icon-bar-chart-alt"></i>报表管理</a>

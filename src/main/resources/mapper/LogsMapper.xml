@@ -7,14 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into as_logs(userId,userName,operateInfo,operatedatetime) values(#{userId},#{userName},#{operateInfo},SYSDATE())
 	</insert>
 	
-	<select id="logs" resultType="Logs">
-	select * from as_logs 
-	where userId=#{userId}
+	<select id="logs" resultType="entity.Logs">
+	select * from as_logs
 	ORDER BY operateDatetime DESC
 	LIMIT #{lineNum},#{pageSize}
 	</select>
 	
 	<select id="logsline" resultType="int">
-	select count(1) from as_logs where userId=#{userId}
+	select count(1) from as_logs
+	</select>
+
+	<select id="allLogs" resultType="entity.Logs">
+		select * from mytable.as_logs ORDER BY operateDatetime DESC
 	</select>
 </mapper>
