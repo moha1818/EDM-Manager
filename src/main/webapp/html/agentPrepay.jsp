@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <script type="text/javascript" src="js/laydate.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script src="dist/js/zui.js"></script>
 <script type="text/javascript">
 $(function() {
 	var page = '<s:property value="#parameters.pageIndex"/>';
@@ -36,12 +38,12 @@ $(function() {
 			至
 			<s:textfield class="laydate-icon" id="demo1" name="endtime" />
 			<input type="hidden" value="<s:property value="id"/>" name="id">
-			<input type="image" src="image/u46.png" class="sub" />
+			<a class="btn btn-primary btn-mini sub" href="javascript:void(0);">查询</a>
 			
 		</div>
 	</form>
 
-	<table class="bordered">
+	<table class="table table-hover table-bordered">
 		<thead>
 
 			<tr>

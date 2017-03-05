@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>关键词审核</title>
+<title>店铺名审核</title>
 <style type="text/css">
 .XYTipsWindow .boxTitle, .XYTipsWindow .boxTitle span, .XYTipsWindow .boxTitle span.hover, .XYTipsWindow .loadinglayer, .XYTipsWindow .tipslayer, .XYTipsWindow .arrowLeft, .XYTipsWindow .colseBtn, .XYTipsWindow .boxError em, .XYTipsWindow .dialogBtn, .XYTipsWindow .dialogBtn.hover { background-image: url("image/ico.png"); background-repeat: no-repeat; }
 .XYTipsWindow .boxTitle { position: relative; border: 1px solid #A6C9E1; border-bottom: none; background-position: 0 0; background-repeat: repeat-x; height: 30px; line-height: 30px; }
@@ -14,8 +14,10 @@
 .XYTipsWindow .boxTitle span.hover { background-position: -90px -40px; }
 </style>
 <link href="css/system management/keywordsre.css" type="text/css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
+	<script src="dist/js/zui.js"></script>
 <script type="text/javascript">
 $(function(){
 	var page='<s:property value="pageIndex"/>';
@@ -76,18 +78,18 @@ function get(a){
  </head>
  <body>
   <div id="" class="">
-		<h3 id="h3">关键词审核</h3>
+		<h3 id="h3">店铺名审核</h3>
 		<form class="top" action="keywordsCheck" method="get" >
-			关键词：<s:textfield name="keywordName" /><input class="submit" type="image" src="image/keywords review/u3.png" width="54" height="22" border="0"/>
-			<span class="green">审核流程：已申请(代理商申请)》审核中》通过》续费</span>&nbsp;|&nbsp;<span class="red">审核流程：已申请(代理商申请)》审核中》不通过</span>
-		</form>
+			店铺名：<s:textfield name="keywordName" /><a class="btn btn-primary btn-mini submit" href="javascript:void(0);">查询</a>
+			<%--<span class="green">审核流程：已申请(代理商申请)》审核中》通过》续费</span>&nbsp;|&nbsp;<span class="red">审核流程：已申请(代理商申请)》审核中》不通过</span>
+		--%></form>
 		<div id="" class="">
-			<table width="980px" border="1" cellpadding="0" cellspacing="0">
+			<table class="table table-hover table-bordered">
 			<tr class="title">
 				<td>序号</td>
-				<td>关键词</td>
+				<td>店铺名</td>
 				<td>客户名称</td>
-				<td>代理商</td>
+				<td>操作员</td>
 				<td>申请年限</td>
 				<td>申请日期</td>
 				<td>到期日期</td>

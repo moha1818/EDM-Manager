@@ -4,11 +4,9 @@ body,div,h3,form,table,tr,td,ul,li{
 		font-size:14px;
 	}
 	body{
-		width:1250px;
 		margin:0 0 0 120px;
 	}
 	#h3{
-		width:980px;
 		margin:15px 0 0 0;
 		font-size:30px;
 		text-align:center;
@@ -17,7 +15,6 @@ body,div,h3,form,table,tr,td,ul,li{
 		margin:0 0 15px 15px;
 		padding:10px;
 		border:1px #EFEFEF solid;
-		width:957px;
 		text-align:center;
 		
 	}
@@ -36,7 +33,8 @@ body,div,h3,form,table,tr,td,ul,li{
 		line-height:25px;
 	}
 #pager{
-	margin-left:20px;
+	margin:50px auto;
+	display: flex;
 }
 #pager ul{
 	margin: 30px auto;

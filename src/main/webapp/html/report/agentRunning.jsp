@@ -5,18 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>代理商流水报表</title>
+<title>付款流水报表</title>
 <link href="css/report.css" type="text/css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
+	<script src="dist/js/zui.js"></script>
 </head>
 <body>
 <s:include value="top.jsp"></s:include>
-<h1>代理商流水报表</h1>
+<h1>付款流水报表</h1>
 <div id="download">
 <a href="exportExcel?reportType=<s:property value="reportType"/>"><img alt="EXCLE下载" src="image/report/u7.png"></a></div>
-			<table>
+			<table class="table table-hover table-bordered">
 			<tr class="title">
 				<td>序号</td>
-				<td>代理商名称</td>
+				<td>操作员</td>
 				<td>预付款</td>
 				<td>账户余额</td>
 				<td>备注信息</td>

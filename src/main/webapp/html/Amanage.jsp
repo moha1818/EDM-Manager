@@ -53,7 +53,7 @@ $('#detail').click(function(){
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-6 col-sm-6">
             <div class="panel" data-id="2">
                 <div class="panel-heading">
                     <i class="icon icon-bullhorn"></i>
