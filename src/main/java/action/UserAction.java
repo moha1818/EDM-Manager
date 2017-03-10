@@ -124,7 +124,7 @@ public class UserAction extends ActionSupport {
 		Map<String,Object> session=ActionContext.getContext().getSession();
 		if(session.get("user")==null){
 			User user;
-			if(usercode!=null&& !usercode.equals("") || password!=null && !password.equals("")){
+			if(usercode!=null&& !usercode.equals("") && password!=null && !password.equals("")){
 				user = userServiceImpl.login(usercode, password);
 			}else{
 				user=null;
