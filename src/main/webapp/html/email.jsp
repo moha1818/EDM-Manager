@@ -9,6 +9,8 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 </head>
 
+<link rel="stylesheet" href="static/enterprises/css/ace.css">
+<link rel="stylesheet" href="static/enterprises/css/ace-fonts.css">
 <body class="no-skin">
 
 <form id="emailForm" action="" method="post">

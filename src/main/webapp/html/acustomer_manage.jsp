@@ -14,6 +14,17 @@
 <script type="text/javascript" src="js/agentmanage.js"></script>
 	<script src="dist/js/zui.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrapq.js"></script>
+
+	<link rel="stylesheet" href="js/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" href="js/bootstrap/css/font-awesome.css"/>
+	<%--<!-- page specific plugin scripts -->
+    <script src="static/enterprises/js/jquery-ui.custom.js"></script>
+    <script src="static/enterprises/js/jquery.ui.touch-punch.js"></script>
+    <script src="static/enterprises/js/markdown.js"></script>
+    <script src="static/enterprises/js/bootstrap-markdown.js"></script>
+    <script src="static/enterprises/js/jquery.hotkeys.js"></script>
+    <script src="static/enterprises/js/bootstrap-wysiwyg.js"></script>
+    <script src="static/enterprises/js/bootbox.js"></script>--%>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');
@@ -188,7 +199,7 @@ window.onload = function(){
 
                 //弹出邮件编辑页面
                 bootstrapQ.dialog({
-                    url: '/openEmail?emails=' + emails_value + '&ids=' + ids_value,
+					url: 'openEmail?emails=' + emails_value + '&ids=' + ids_value,
                     title: '编辑邮件内容',
                     head: false,
                     backdrop: false,

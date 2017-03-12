@@ -17,7 +17,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $(".clickCode").click(function () {
-                $("#imageCode").attr("src", "codes.jsp?id=" + Math.random());
+                $("#imageCode").attr("src", "html/codes.jsp?id=" + Math.random());
             });
         });
 
