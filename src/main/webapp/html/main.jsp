@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link href="css/base.css" type="text/css" rel="stylesheet" />
 <link href="css/main.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <s:if test="msg2!=null">
 	<script type="text/javascript">

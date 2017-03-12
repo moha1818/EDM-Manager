@@ -50,6 +50,7 @@
 		</tr>
 		<tr>
 			<td>公司地址：<s:property value="customs.companyAddress" /></td>
+			<td>公司邮箱：<s:property value="customs.email"/></td>
 		</tr>
 		<tr>
 			<td>备注：<s:property value="customs.memo" /></td>

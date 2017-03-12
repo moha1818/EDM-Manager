@@ -8,7 +8,7 @@
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
 	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
 	<script src="dist/js/zui.js"></script>
 <script type="text/javascript">

@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/agentmanage/3.css">
 </head>
 <script type="text/javascript" src="js/laydate.js"></script>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/agentmanage.js"></script>
 <body>
 	<form action="add" method="post">
@@ -77,6 +77,8 @@
 			<tr>
 				<td>公司地址：</td>
 				<td><input type="text" name="customs.companyAddress" /></td>
+				<td>公司邮箱：</td>
+				<td><input type="text" name="customs.email"/></td>
 			</tr>
 			<tr>
 				<td>备注：</td>

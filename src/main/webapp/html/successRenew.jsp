@@ -13,7 +13,7 @@ h1{
 	margin-top: 50px;
 }
 </style>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <hr id="top"/>

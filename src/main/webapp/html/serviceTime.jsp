@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/System configuration management/serviceTime.css">
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	var id='<s:property value="id"/>';
 	var isStart='<s:property value="isStart"/>';

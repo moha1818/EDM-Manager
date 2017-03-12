@@ -25,7 +25,7 @@
 		.copyrights{position: absolute;left: 0;top: 5px;width: 200px;padding-right:20px; z-index: 1;}
 		.footer{position: absolute;bottom: 0;z-index: 3;width:100%;height:50px; background: #f9f9f9 ;border: 0;}
 	</style>
-	<script src="dist/jquery-1.8.3.min.js" ></script>
+	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="dist/js/zui.js"></script>
 	<script type="text/javascript" src="js/mains.js"></script>
 	<s:if test="msg2!=null">

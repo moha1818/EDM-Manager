@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>财务管理</title>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <link href="css/system management/financial.css" type="text/css"
 	rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">

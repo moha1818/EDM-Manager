@@ -33,8 +33,9 @@ public class Customs {
 	private String area; 			// 区（来源于hat_area中的areaID）
 	private String companyAddress; 	// 公司地址
 	private String memo; 			// 备注
-	
-	public Hat_province getPro() {
+    private String email;
+
+    public Hat_province getPro() {
 		return pro;
 	}
 
@@ -242,4 +243,11 @@ public class Customs {
 		this.agentCode = agentCode;
 	}
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

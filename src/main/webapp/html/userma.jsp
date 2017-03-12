@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户管理</title>
   <link href="css/system management/userma.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/system management/userma.js" ></script>
   <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
   <script type="text/javascript">

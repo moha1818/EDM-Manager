@@ -8,7 +8,7 @@
 <title>功能列表</title>
 <link href="css/system management/featurelist.css" type="text/css"
 	rel="stylesheet" />
- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
  <script type="text/javascript" src="js/system management/featurelist.js" ></script>
  
 </head>

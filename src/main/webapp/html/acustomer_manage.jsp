@@ -10,15 +10,16 @@
 
 	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/agentmanage.js"></script>
 	<script src="dist/js/zui.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/bootstrapq.js"></script>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');
 }
 	$(function(){
-	$('#see').click(function(){
+        /*$('#see').click(function(){
 		$(window.parent.document).find('#n3').html('&#92;&nbsp;查看客户信息');
 	})
 	$('#upd').click(function(){
@@ -26,7 +27,7 @@ window.onload = function(){
 	})
 	$('#add').click(function(){
 		$(window.parent.document).find('#n3').html('&#92;&nbsp;添加客户信息');
-	})
+         })*/
 		
 	var page='<s:property value="#parameters.current"/>';
 	if(page==""){
@@ -38,7 +39,21 @@ window.onload = function(){
 			$(".page").eq(i).addClass("pagecss");
 		}
 	}
+        $('#selectAll').change(function () {
+            var $allItems = $("input[name='selectedItems']");
+            if ($(this).is(":checked")) {
+                $allItems.each(function () {
+                    $(this).prop("checked", "checked");
+                });
+            } else {
+                //alert("没有选中");
+                $allItems.each(function () {
+                    $(this).prop("checked", null);
+                });
+            }
+        });
 	});
+
 </script>
 </head>
 <body>
@@ -51,14 +66,16 @@ window.onload = function(){
 		<%--<a href="javascript:void(0);" id="add"> <img src="image/addcustomeru2.png" />
 		</a>--%>
 		<a class="btn btn-primary"  href="javascript:void(0);" id="add"><i class="icon icon-plus-sign"></i>添加企业</a>
+        <button onclick="sendEmail()" class="btn btn-info">发送邮件</button>
 	</div>
 	<table class="table table-hover table-bordered">
 		<thead>
-
 			<tr>
+                <th><input type="checkbox" id="selectAll"></th>
 				<th>序号</th>
 				<th>企业名称</th>
 				<th>法人代表</th>
+                <th>企业邮箱</th>
 				<th>注册时间</th>
 				<th>类型</th>
 				<th>状态</th>
@@ -68,9 +85,12 @@ window.onload = function(){
 
 		<s:iterator value="cusPage.list" status="li">
 			<tr>
+                <td><input value="<s:property value="id" />" att-email="<s:property value="email" />" type="checkbox"
+                           id="${v.id }" name="selectedItems" class="toRecoveryButton"></td>
 				<td><s:property value="#li.index+1" /></td>
 				<td><s:property value="customName" /></td>
 				<td><s:property value="bossName" /></td>
+                <td><s:property value="email"/></td>
 				<td><s:date name="regDatetime" format="yyyy-MM-dd" /></td>
 				<td><s:property value="customTypeName" /></td>
 				<td><s:if test="customStatus==1">
@@ -141,7 +161,52 @@ window.onload = function(){
 				href="pageList?current=<s:property value="cusPage.pageCount"/>&name=<s:property value="#parameters.name"/>">尾页</a></li>
 		</ul>
 	</div>
-	<div style="height: 170px;"></div>
+    <script type="text/javascript">
+        var sendEmail = function () {
+            var emails = [];
+            var ids = [];
+            //检测所有点击
+            $("input[name='selectedItems']").each(function (index) {
+                if ($(this).is(":checked")) {
+                    //如果被选中，说明这个邮箱需要发邮件
+                    email = $(this).attr("att-email");
+                    id = $(this).val();
+                    ids.push(id);
+                    emails.push(email);
+                } else {
+
+                }
+            });
+
+            if (emails.length == 0) {
+                //没有选择目标邮箱
+                alert("请选择需要发邮件的邮箱!");
+            } else {
+                var emails_value = emails.join(",");
+                var ids_value = ids.join(",");
+
+
+                //弹出邮件编辑页面
+                bootstrapQ.dialog({
+                    url: '/openEmail?emails=' + emails_value + '&ids=' + ids_value,
+                    title: '编辑邮件内容',
+                    head: false,
+                    backdrop: false,
+                    foot: false,
+                    big: false,
+                    mstyle: 'width:1000px;'
+                }, function () {
+                    //window.location.reload();
+                    //alert("hah");
+                    // true关闭窗口，false不关闭
+
+                    return false;
+                });
+            }
+        }
+    </script>
+
+    </script>
 	<s:if test="cusPage.list.size()==0">
 		<script type="text/javascript">
 			alert("请输入存在客户名称！");

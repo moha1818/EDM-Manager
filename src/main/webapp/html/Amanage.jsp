@@ -21,7 +21,7 @@ p{
 p a{
 	text-decoration:none;}
 </style>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="dist/js/zui.js"></script>
     <script type="text/javascript" src="dist/lib/dashboard/zui.dashboard.js"></script>
 <script type="text/javascript">

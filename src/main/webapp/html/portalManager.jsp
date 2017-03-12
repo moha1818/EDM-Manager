@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>门户管理</title>
 <link href="css/portal/portalManager.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');

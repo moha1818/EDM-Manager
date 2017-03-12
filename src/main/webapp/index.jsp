@@ -7,7 +7,7 @@
     <meta name="description" content="登录页面描述">
     <title>登录页面</title>
     <link rel="stylesheet" type="text/css" href="html/css/mains.css">
-    <script type="text/javascript" src="html/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="html/js/jquery-3.1.1.min.js"></script>
     <s:if test="msg!=null">
         <script type="text/javascript">
             var msg = "<s:property value='msg' />"

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/1.css">
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/agentmanage.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
 <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>

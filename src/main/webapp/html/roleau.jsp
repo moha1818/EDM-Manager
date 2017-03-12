@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>角色权限分配</title>
   <link href="css/system management/roleau.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript">
   	$(function(){
   		$(".role").click(function(){

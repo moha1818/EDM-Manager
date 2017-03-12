@@ -67,6 +67,9 @@
 		<action name="sendEmail" class="accountAction" method="sendEmail">
 			<result>transfer_login.jsp</result>
 		</action>
+		<action name="openEmail" class="accountAction" method="openEmail">
+			<result>email.jsp</result>
+		</action>
 		<!-- 显示账户明细 -->
 		<action name="showDetail" class="accountdetailAction" method="showDetail">
 			<result>accountDetail.jsp</result>

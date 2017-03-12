@@ -12,6 +12,7 @@ import service.impl.AccountServiceImpl;
 import utils.sendemail.EmailService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -38,6 +39,9 @@ public class AccountAction  extends ActionSupport {
 		this.account = account;
 	}
 
+	private List<String> emails;
+	private List<String> ids;
+
 	public String showAccount(){
 		
 		Map<String,Object> session = ActionContext.getContext().getSession();
@@ -57,5 +61,24 @@ public class AccountAction  extends ActionSupport {
 		}
 		return SUCCESS;
 	}
- 
+
+	public String openEmail() {
+		return SUCCESS;
+	}
+
+	public List<String> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(List<String> emails) {
+		this.emails = emails;
+	}
+
+	public List<String> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<String> ids) {
+		this.ids = ids;
+	}
 }
