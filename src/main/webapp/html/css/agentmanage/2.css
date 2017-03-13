@@ -109,7 +109,7 @@ a{
 form .sub{
 	position:absolute;}
 
-form div{
+.normal form div{
 	padding:8px;
 	border: #CCC 1px solid;
 	margin:8px;

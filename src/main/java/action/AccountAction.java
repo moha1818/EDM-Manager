@@ -41,7 +41,10 @@ public class AccountAction  extends ActionSupport {
 
 	private List<String> emails;
 	private List<String> ids;
-
+	private String targetEmail;
+	private String eidGroup;
+	private String subject;
+	private String content;
 	public String showAccount(){
 		
 		Map<String,Object> session = ActionContext.getContext().getSession();
@@ -50,15 +53,22 @@ public class AccountAction  extends ActionSupport {
 		account = accountServiceImpl.getAccount(user.getId());
 		return SUCCESS;
 	}
-
+	private Map<String, Object> msg = new HashMap<>();
 	public String sendEmail(){
-		Map map=new HashMap();
+	/*	Map map=new HashMap();
 		map.put("emailcode",110);
 		try{
 			emailService.sendEmail(map,"verifyEmail.vm","mohaxs@foxmail.com","test");
 		}catch (Exception e){
 			return INPUT;
+		}*/
+		String[] eids = eidGroup.split(",");//企业ID
+		String[] emails = targetEmail.split(",");//企业邮箱
+
+		for(String email:emails){
+			emailService.sendEmail(content,email,subject);
 		}
+		msg.put("msg",1);
 		return SUCCESS;
 	}
 
@@ -80,5 +90,44 @@ public class AccountAction  extends ActionSupport {
 
 	public void setIds(List<String> ids) {
 		this.ids = ids;
+	}
+
+	public String getTargetEmail() {
+		return targetEmail;
+	}
+
+	public void setTargetEmail(String targetEmail) {
+		this.targetEmail = targetEmail;
+	}
+
+	public String getEidGroup() {
+		return eidGroup;
+	}
+
+	public void setEidGroup(String eidGroup) {
+		this.eidGroup = eidGroup;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Map<String, Object> getMsg() {
+		return msg;
+	}
+
+	public void setMsg(Map<String, Object> msg) {
+		this.msg = msg;
 	}
 }

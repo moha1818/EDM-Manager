@@ -27,7 +27,7 @@ $(function() {
 </script>
 </head>
 
-<body>
+<body class="normal">
 	<form action="prepay" method="get">
 		<div>
 			<span>操作类型：</span>

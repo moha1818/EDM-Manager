@@ -8,11 +8,17 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 </head>
-
-<link rel="stylesheet" href="static/enterprises/css/ace.css">
-<link rel="stylesheet" href="static/enterprises/css/ace-fonts.css">
+<link rel="stylesheet" href="js/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" href="js/bootstrap/css/font-awesome.css"/>
+<link rel="stylesheet" href="static/ace/css/ace.css">
+<link rel="stylesheet" href="static/ace/css/ace-fonts.css">
+<link rel="stylesheet" href="static/crm.css"/>
+<style>
+    body{
+        background-color:inherit;
+    }
+</style>
 <body class="no-skin">
-
 <form id="emailForm" action="" method="post">
     <input type="hidden" name="eidGroup" value="${param.ids }"/>
     <div class="row">
@@ -65,17 +71,23 @@
 
 <!-- 提交 -->
 <div>
-    <a onclick="commit()" class="btn btn-sm btn-primary"
+    <a id="sendEmaila" onclick="commit()" class="btn btn-sm btn-primary"
        data-toggle="tooltip" data-placement="top" title="发送邮件"><i
             class="fa fa-reply"></i> 发送</a>
 
-    <button class="btn btn-danger btn-sm" data-dismiss="modal" title="退出">放弃</button>
+    <button class="btn btn-danger btn-sm outEmail" data-dismiss="modal" title="退出">放弃</button>
 </div>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+    $(function(){
+        $(".outEmail").click(function () {
+            location.href="pageList";
+        })
+    })
     //发送验证
     function commit() {
+
         //定义两个标记变量
         var success = 1;
         var fail = 0;
@@ -89,17 +101,17 @@
         }
         //alert(sHTML)
         if (sHTML.trim() == "") {
-            alert("请填写邮件内容!");
+           alert("请填写邮件内容!");
             return;
         }
-
+        $("#sendEmaila").html("<i class=\"fa fa-reply\"></i> 发送").attr("disabled","disabled");
         $("#contentPutHere").val(sHTML);
 
-        $.post("/email/sendEmail", $("#emailForm").serialize(),
+        $.post("sendEmail", $("#emailForm").serialize(),
                 function (data) {
-                    if (data == success) {
-                        alert("已发送");
-                        top.location.reload();
+                    if (data.msg == 1) {
+                        alert("发送成功！")
+                        location.href="pageList";
                     }
                 });
 
@@ -276,6 +288,5 @@
 
     });
 </script>
-
 </body>
 </html>

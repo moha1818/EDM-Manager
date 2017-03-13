@@ -7,24 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-
-	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
-<link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+    <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+    <link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="js/agentmanage.js"></script>
+    <script type="text/javascript" src="js/agentmanage.js"></script>
 	<script src="dist/js/zui.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrapq.js"></script>
 
-	<link rel="stylesheet" href="js/bootstrap/css/bootstrap.css"/>
-	<link rel="stylesheet" href="js/bootstrap/css/font-awesome.css"/>
-	<%--<!-- page specific plugin scripts -->
-    <script src="static/enterprises/js/jquery-ui.custom.js"></script>
-    <script src="static/enterprises/js/jquery.ui.touch-punch.js"></script>
-    <script src="static/enterprises/js/markdown.js"></script>
-    <script src="static/enterprises/js/bootstrap-markdown.js"></script>
-    <script src="static/enterprises/js/jquery.hotkeys.js"></script>
-    <script src="static/enterprises/js/bootstrap-wysiwyg.js"></script>
-    <script src="static/enterprises/js/bootbox.js"></script>--%>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');
@@ -172,6 +161,37 @@ window.onload = function(){
 				href="pageList?current=<s:property value="cusPage.pageCount"/>&name=<s:property value="#parameters.name"/>">尾页</a></li>
 		</ul>
 	</div>
+
+    <!-- page specific plugin scripts -->
+    <script src="static/enterprises/js/jquery-ui.custom.js"></script>
+    <script src="static/enterprises/js/jquery.ui.touch-punch.js"></script>
+    <script src="static/enterprises/js/markdown.js"></script>
+    <script src="static/enterprises/js/bootstrap-markdown.js"></script>
+    <script src="static/enterprises/js/jquery.hotkeys.js"></script>
+    <script src="static/enterprises/js/bootstrap-wysiwyg.js"></script>
+    <script src="static/enterprises/js/bootbox.js"></script>
+    <!-- ace scripts -->
+    <script src="static/enterprises/js/elements.scroller.js"></script>
+    <script src="static/enterprises/js/elements.colorpicker.js"></script>
+    <script src="static/enterprises/js/elements.fileinput.js"></script>
+    <script src="static/enterprises/js/elements.typeahead.js"></script>
+    <script src="static/enterprises/js/elements.wysiwyg.js"></script>
+    <script src="static/enterprises/js/elements.spinner.js"></script>
+    <script src="static/enterprises/js/elements.treeview.js"></script>
+    <script src="static/enterprises/js/elements.wizard.js"></script>
+    <script src="static/enterprises/js/elements.aside.js"></script>
+    <script src="static/enterprises/js/ace.js"></script>
+    <script src="static/enterprises/js/ace.ajax-content.js"></script>
+    <script src="static/enterprises/js/ace.touch-drag.js"></script>
+    <script src="static/enterprises/js/ace.sidebar.js"></script>
+    <script src="static/enterprises/js/ace.sidebar-scroll-1.js"></script>
+    <script src="static/enterprises/js/ace.submenu-hover.js"></script>
+    <script src="static/enterprises/js/ace.widget-box.js"></script>
+    <script src="static/enterprises/js/ace.settings.js"></script>
+    <script src="static/enterprises/js/ace.settings-rtl.js"></script>
+    <script src="static/enterprises/js/ace.settings-skin.js"></script>
+    <script src="static/enterprises/js/ace.widget-on-reload.js"></script>
+    <script src="static/enterprises/js/ace.searchbox-autocomplete.js"></script>
     <script type="text/javascript">
         var sendEmail = function () {
             var emails = [];
@@ -216,7 +236,6 @@ window.onload = function(){
             }
         }
     </script>
-
     </script>
 	<s:if test="cusPage.list.size()==0">
 		<script type="text/javascript">

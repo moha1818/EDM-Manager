@@ -70,4 +70,9 @@ public class EmailServiceImpl implements EmailService {
         sw.flush();
         return sw.toString();
     }
+
+    @Override
+    public void sendEmail(String TemplateNameOrContent, String targetEmail, String subject) {
+        this.sendEmail(null, TemplateNameOrContent, targetEmail, subject);
+    }
 }

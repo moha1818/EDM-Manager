@@ -64,9 +64,6 @@
 		<action name="index" class="userAction" method="index">
 			<result>Amanage.jsp</result>
 		</action>
-		<action name="sendEmail" class="accountAction" method="sendEmail">
-			<result>transfer_login.jsp</result>
-		</action>
 		<action name="openEmail" class="accountAction" method="openEmail">
 			<result>email.jsp</result>
 		</action>
@@ -312,6 +309,11 @@
 		</action>
 		<!-- 关键词审核操作弹出框 -->
 		<action name="msgOut" class="keywordsCheckAction" method="msgOut">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<action name="sendEmail" class="accountAction" method="sendEmail">
 			<result type="json">
 				<param name="root">msg</param>
 			</result>

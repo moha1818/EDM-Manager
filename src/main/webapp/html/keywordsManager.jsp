@@ -27,7 +27,7 @@
 </script>
 </head>
 
-<body>
+<body class="normal">
 	<form action="keywordsList" method="get">
 		<div>
 			关键词：
