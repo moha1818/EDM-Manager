@@ -62,13 +62,18 @@ public class AccountAction  extends ActionSupport {
 		}catch (Exception e){
 			return INPUT;
 		}*/
-		String[] eids = eidGroup.split(",");//企业ID
-		String[] emails = targetEmail.split(",");//企业邮箱
+		if(eidGroup!=null && targetEmail!=null) {
+			String[] eids = eidGroup.split(",");//企业ID
+			String[] emails = targetEmail.split(",");//企业邮箱
 
-		for(String email:emails){
-			emailService.sendEmail(content,email,subject);
+			for (String email : emails) {
+				emailService.sendEmail(content, email, subject);
+			}
+			msg.put("msg",1);
+		}else{
+			msg.put("msg",0);
 		}
-		msg.put("msg",1);
+
 		return SUCCESS;
 	}
 

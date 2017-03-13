@@ -13,7 +13,7 @@
     <script type="text/javascript" src="js/agentmanage.js"></script>
 	<script src="dist/js/zui.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrapq.js"></script>
-
+    <script type="text/javascript" src="static/jquery.form.js"></script>
 <script type="text/javascript">
 window.onload = function(){
 	$(window.parent.document).find('#n3').html('');

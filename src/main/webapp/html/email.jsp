@@ -104,13 +104,16 @@
            alert("请填写邮件内容!");
             return;
         }
-        $("#sendEmaila").html("<i class=\"fa fa-reply\"></i> 发送").attr("disabled","disabled");
+        $("#sendEmaila").html("<i class=\"fa fa-reply\"></i>发送中").attr("disabled","disabled");
         $("#contentPutHere").val(sHTML);
 
         $.post("sendEmail", $("#emailForm").serialize(),
                 function (data) {
                     if (data.msg == 1) {
                         alert("发送成功！")
+                        location.href="pageList";
+                    }else{
+                        alert("发送失败！");
                         location.href="pageList";
                     }
                 });
