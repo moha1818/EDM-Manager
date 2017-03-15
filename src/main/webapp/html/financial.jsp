@@ -77,7 +77,7 @@ function ld(){
 												if (data.length == 0) {
 													$("#top")
 															.append(
-																	"<a href=\"userma\">不存在该用户，是否需要添加？</a>")
+																	"<a href=\"userma\">不存在该客户，是否需要添加？</a>")
 												}
 												response($
 														.map(
@@ -100,7 +100,7 @@ function ld(){
 			$("#name").autocomplete("search", " ");
 		});
 		function renderHTML(val) {
-			return '<div>' + val.userName + '</div>';
+			return '<div>' + val.userName + '<p>   </p>'+'</div>';
 		};
 		
 		$("#typeName").change(function() {
@@ -151,10 +151,6 @@ function ld(){
 					<tr>
 						<td><s:submit type="image"
 								src="image/financial management/u5.png" onclick="return isNum()" /></td>
-					</tr>
-					<tr>
-						<td><span class="red">重要提示：输入的资金数，正数(1000)为向账户增加1000元，负数(-1000)为向账户减少1000元，精确到小数点2位数</span>
-						</td>
 					</tr>
 				</table>
 				<div style="height: 70px"></div>

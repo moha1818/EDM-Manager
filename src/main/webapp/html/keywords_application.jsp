@@ -40,7 +40,7 @@
 								var inputValue = request.term;
 								$
 										.ajax({
-											url : 'findcus',
+											url : 'findCusSup',
 											type : 'get',
 											data : 'name=' + inputValue,
 											dataType : 'json',
@@ -49,7 +49,7 @@
 												if (data.length == 0) {
 													$("#n")
 															.append(
-																	"<a href=\"add_cus\">不存在该客户，是否需要添加？</a>")
+																	"<a href=\"add_cus\">不存在该供应商，是否需要添加？</a>")
 												}
 												response($
 														.map(
@@ -157,9 +157,7 @@
 </script>
 <body>
 	<div id="n">
-		<span>搜索客户：</span><input type="text" id="name" />输入后自动搜索<span
-			style="color: red">【当前账户余额：￥<s:property value="balance" />】
-		</span>
+		<span>搜索供应商：</span><input type="text" id="name"  placeholder="输入后自动搜索"/>
 	</div>
 	<form id="form" method="post" action="keywords_add">
 		<table class="bordered">

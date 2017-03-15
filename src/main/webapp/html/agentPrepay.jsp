@@ -50,7 +50,6 @@ $(function() {
 				<th>序号</th>
 				<th>账户类型</th>
 				<th>账务资金</th>
-				<th>账户余额</th>
 				<th>备注信息</th>
 				<th>明细时间</th>
 			</tr>
@@ -60,7 +59,6 @@ $(function() {
 				<td><s:number name="#detail.id" /></td>
 				<td><s:property value="#detail.detailTypeName" /></td>
 				<td><s:number name="#detail.money" /></td>
-				<td><s:number name="#detail.accountMoney" /></td>
 				<td><s:property value="#detail.memo" /></td>
 				<td><s:date name="#detail.detailDateTime" /></td>
 			</tr>

@@ -8,9 +8,9 @@
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
 	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
-    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
-	<script src="dist/js/zui.js"></script>
+
 <script type="text/javascript">
 	$(function() {
 		var page = '<s:property value="#parameters.pageIndex"/>';
@@ -41,7 +41,7 @@
 				<th>序号</th>
 				<th>关键词</th>
 				<th>客户名称</th>
-				<th>代理商</th>
+				<th>操作员</th>
 				<th>申请年限</th>
 				<th>申请日期</th>
 				<th>到期日期</th>
@@ -87,14 +87,15 @@
 					</s:if> <s:if test="#k.openApp==1">
 						<span style="color: #008000">已开通</span>
 					</s:if></td>
-				<td><s:if test="#k.checkStatus==2&&#k.openApp==0">
+				<td><input type="hidden" value="<s:property value="#k.keywords" />" id="keyword">
+					<s:if test="#k.checkStatus==2&&#k.openApp==0">
 					<a href="javascript:void(0);"
 					   class="btn btn-primary btn-mini openApp">开通手机端详情</a>
 						<a href="javascript:void(0);" class="btn btn-primary btn-mini renew">续费</a>
-						<input type="hidden" value="<s:property value="#k.keywords"/>" />
+						<input type="hidden" value="<s:property value="#k.customName"/>" />
 					</s:if> <s:if test="#k.checkStatus==2&&#k.openApp==1">
 						<a href="javascript:void(0);" class="btn btn-primary btn-mini renew">续费</a>
-						<input type="hidden" value="<s:property value="#k.keywords"/>" />
+						<input type="hidden" value="<s:property value="#k.customName"/>" />
 					</s:if> <s:if test="#k.checkStatus!=2">
 						<span style="color: #D3CCCC">无操作</span>
 					</s:if></td>

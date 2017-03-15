@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/System configuration management/financialType.css">
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/systemconfig/base.js"></script>
 <script type="text/javascript" src="js/systemconfig/financialType.js"></script>
@@ -23,7 +24,7 @@
 		<div class="add">
 			<input type="image" src="image/u2kehu.png" border=0 />
 		</div>
-		<table class="bordered">
+		<table class="table table-hover table-bordered bordered">
 			<tr class="hr_head">
 				<td id="td_1">序号</td>
 				<td id="td_2">配置类型</td>

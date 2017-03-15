@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户管理</title>
   <link href="css/system management/userma.css" type="text/css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/system management/userma.js" ></script>
   <script type="text/javascript" src="js/jquery.XYTipsWindow.min.2.8.js"></script>
@@ -33,7 +34,7 @@
 		<input class="middle1" type="image" src="image/user management/u7.png" width="115" height="33" border="0" onclick="return false" />
 	</div>
 	<div id="" class="">
-		<table width="980px" border="1" cellpadding="0" cellspacing="0" class="all">
+		<table  width="980px" border="1" cellpadding="0" cellspacing="0" class="table table-hover table-bordered all">
 			<tr class="title">
 				<td>登录帐号</td>
 				<td>用户名称</td>

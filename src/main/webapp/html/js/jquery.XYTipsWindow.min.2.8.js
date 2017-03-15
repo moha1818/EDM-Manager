@@ -15,9 +15,10 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a
 $(function() {
 	$(".openApp").click(function(){
 		var name = $(this).next().next(':input').val();
+		var keywords=$("#keyword").val();
 		$.XYTipsWindow({
 			___title:"【"+name+"】开通手机详情页",
-			___content:"iframe:showKey?keywordName="+name,
+			___content:"iframe:showKey?keywordName="+keywords,
 			___width:"480",
 			___height:"250",
 			___drag:"___boxTitle"
@@ -26,9 +27,10 @@ $(function() {
 	});
 	$(".renew").click(function(){
 		var name = $(this).next(':input').val();
+        var keywords=$("#keyword").val();
 		$.XYTipsWindow({
 			___title:"当前为【"+name+"】进行续费操作",
-			___content:"iframe:showKey2?keywordName="+name,
+			___content:"iframe:showKey2?keywordName="+keywords,
 			___width:"480",
 			___height:"260",
 			___drag:"___boxTitle"

@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller(value = "agentKeyAction")
 @Scope(scopeName = "prototype")
@@ -109,7 +110,12 @@ public class AgentKeyAction extends ActionSupport implements Preparable {
 	}
 
 	// 模糊查询
-	public String findCus() {
+	public String findCusSup() {
+		customs = customsServiceImpl.likeCus(name);
+		customs=customs.stream().filter(custom->custom.getCustomType().equals(1)).collect(Collectors.toList());
+		return SUCCESS;
+	}
+	public String findCus(){
 		customs = customsServiceImpl.likeCus(name);
 		return SUCCESS;
 	}

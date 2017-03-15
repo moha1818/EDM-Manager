@@ -283,6 +283,11 @@
 				<param name="root">customs</param>
 			</result>
 		</action>
+		<action name="findCusSup" class="action.AgentKeyAction" method="findCusSup">
+			<result type="json">
+				<param name="root">customs</param>
+			</result>
+		</action>
 		<!-- 查询关键词 -->
 		<action name="findkey" class="action.AgentKeyAction" method="findKey">
 			<result type="json">

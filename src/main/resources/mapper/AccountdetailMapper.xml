@@ -16,7 +16,7 @@
 	<if test="end!=null">
 		and detailDateTime &lt;= #{end}
 	</if>
-	order by id
+	order by id DESC
 	LIMIT #{lineNum},#{pageSize}
 </select>
 <select id="detailCount" resultType="int">

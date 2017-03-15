@@ -138,14 +138,16 @@ public class AgentHatAction extends ActionSupport implements Preparable {
 		try {
 			customs.setId(id);
 			customsServiceImpl.modifyCus(customs);
-			for (Contacts c : contacts) {
-				c.setCustomId(id);
-				if (c.getId() != null) {
-					contactsServiceImpl.modifyContacts(c);
-					// 修改
-				} else {
-					contactsServiceImpl.addContacts(c);
-					// 添加
+			if(contacts!=null){
+				for (Contacts c : contacts) {
+					c.setCustomId(id);
+					if (c.getId() != null) {
+						contactsServiceImpl.modifyContacts(c);
+						// 修改
+					} else {
+						contactsServiceImpl.addContacts(c);
+						// 添加
+					}
 				}
 			}
 			// 添加日志

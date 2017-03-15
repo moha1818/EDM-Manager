@@ -4,7 +4,6 @@ body,div,table,tr,td{
 		font-size:14px;
 	}
 	body{
-		width:1250px;
 		margin:0 0 0 220px;
 	}
 	.add{
@@ -28,7 +27,7 @@ body,div,table,tr,td{
 		display:block;
 	}
 	.adduser{
-		width:260px;
+		width:20%;
 		border:1px #CCCCCC solid;
 		background-color:#E5FFE0;
 		position:absolute;

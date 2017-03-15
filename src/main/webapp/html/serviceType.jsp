@@ -10,6 +10,7 @@
 <script type="text/javascript" src="js/systemconfig/base.js"></script>
 <script type="text/javascript" src="js/systemconfig/serviceType.js"></script>
 <link rel="stylesheet" type="text/css" href="css/System configuration management/serviceType.css">
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 <s:if test="msg!=null">
 	<script type="text/javascript">
 		var msg = "<s:property value='msg' />"
@@ -23,7 +24,7 @@
 		<div  class="add">
 			<input type="image" src="image/u2fuwu.png" border=0 />
 		</div>
-		<table class="bordered">
+		<table class="table table-hover table-bordered  bordered">
 			<tr class="hr_head">
 				<td id="td_1">序号</td>
 				<td id="td_2">配置类型</td>

@@ -8,18 +8,18 @@
 <title>角色管理</title>
 <link href="css/system management/rolema.css" type="text/css"
 	rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/system management/rolema.js"></script>
 </head>
 <body>
 	<div id="" class="">
-		<div id="" class="add">
-			<input type="image" src="image/role management/u2.png" border=0 />
-
+		<div id="" class=" add">
+			<a href="javascript:;" class="btn btn-primary" ><i class="icon icon-plus-sign"></i>添加</a>
 		</div>
 		<div id="" class="">
 			<table width="800" border="1" cellpadding="0" cellspacing="0"
-				class="all">
+				   class="table table-hover table-bordered all">
 				<tr class="title">
 					<td>角色名称</td>
 					<td>创建时间</td>

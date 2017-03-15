@@ -1,26 +1,20 @@
 package action;
 
-import java.util.List;
-import java.util.Map;
-
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-
-import entity.Account;
-import entity.Accountdetail;
-import entity.Keywords;
-import entity.Systemconfig;
-import entity.User;
 import service.AccountdetailService;
 import service.LogsService;
 import service.SystemconfigService;
 import service.impl.AccountServiceImpl;
 import service.impl.KeywordsServiceImpl;
+
+import java.util.List;
+import java.util.Map;
 
 @Controller(value = "keywordsManagerAction")
 @Scope(scopeName = "prototype")
@@ -52,7 +46,7 @@ public class KeywordsManagerAction extends ActionSupport{
 	private Keywords key;
 	private String keywordName;
 	private int pageIndex = 1;
-	private int pageSize = 4;
+	private int pageSize = 10;
 	private int totalPage;
 	private int x;
 	private int y;

@@ -36,7 +36,6 @@ body,div,form,table,tr,td,ul,li{
 	ul li{
 		list-style-type:none;
 		float:left;
-		width:35px;
 		line-height:35px;
 		border:1px #DDDDDD solid;
 		text-align:center;

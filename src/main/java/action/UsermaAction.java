@@ -164,7 +164,7 @@ public class UsermaAction extends ActionSupport{
 			page.setPageIndex(1);
 		}
 		pageIndex = page.getPageIndex();
-		page.setPageSize(2);
+		page.setPageSize(10);
 		this.userlist=usermaService.userlist(page.getPageIndex(),page.getPageSize(),userName,roleid,isStart);
 		page.setList(userlist);
 		page.setTotalCount(usermaService.num(userName, roleid, isStart));
