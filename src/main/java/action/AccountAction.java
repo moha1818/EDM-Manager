@@ -45,6 +45,8 @@ public class AccountAction  extends ActionSupport {
 	private String eidGroup;
 	private String subject;
 	private String content;
+	private String email;
+
 	public String showAccount(){
 		
 		Map<String,Object> session = ActionContext.getContext().getSession();
@@ -74,6 +76,13 @@ public class AccountAction  extends ActionSupport {
 			msg.put("msg",0);
 		}
 
+		return SUCCESS;
+	}
+	public String successSendE(){
+		Map map=new HashMap();
+		map.put("name","");
+		map.put("targetVM","supplierAuthPass.vm");
+		emailService.sendEmail(map,"cnEmail.vm",email,"eGTCP审核通过");
 		return SUCCESS;
 	}
 
@@ -134,5 +143,12 @@ public class AccountAction  extends ActionSupport {
 
 	public void setMsg(Map<String, Object> msg) {
 		this.msg = msg;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getEmail() {
+		return email;
 	}
 }

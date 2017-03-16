@@ -132,6 +132,10 @@ public class KeywordsServiceImpl implements KeywordsService{
 		
 	}
 
+	@Override
+	public List<Keywords> allkeywords() {
+		return keywordsDao.allkeys();
+	}
 
 
 }

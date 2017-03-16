@@ -1,10 +1,8 @@
 package service;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import entity.Keywords;
+
+import java.util.List;
 
 public interface KeywordsService {
 
@@ -44,4 +42,6 @@ public interface KeywordsService {
 	
 	//修改使用状态
 	public void updateUse(int isUse,String keyname);
+
+	List<Keywords> allkeywords();
 }

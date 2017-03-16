@@ -197,6 +197,7 @@
 			k.id,
 			k.keywords,
 			k.agentName,
+			k.customId,
 			k.customName,
 			k.regDatetime,
 			k.regPassDatetime,
@@ -268,4 +269,8 @@
 	<update id="updateUse">
 		update as_keywords set isUse = #{isUse} where keywords = #{keyname}
 	</update>
+
+	<select id="allkeys" resultType="entity.Keywords">
+		SELECT checkStatus,isUse from mytable.as_keywords
+	</select>
 </mapper>

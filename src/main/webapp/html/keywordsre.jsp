@@ -30,6 +30,8 @@ $(function(){
 function get(a){
 	var value = $(a).val();
 	var name = $(a).next(':input').val();
+	var cusName=$(a).next().next(':input').val();
+	var cusId=$(a).next().next().next(':input').val();
 	var pageIndex = "<s:property value='pageIndex'/>";
 	var keywordName = "<s:property value='keywordName'/>";
 	if(value==5){
@@ -46,16 +48,14 @@ function get(a){
 		$.ajax({
 			url:'msgOut',
 			type:'get',
-			data:'value='+value+"&keyname="+name,
+			data:'value='+value+"&keyname="+name+"&cusName="+cusName,
 			dataType:'json',
 			success:function(data){
-				
 				if (confirm(data.msg1)){
-					
 					$.ajax({
 						url:'check',
 						type:'get',
-						data:'value='+value+"&keyname="+name,
+						data:'value='+value+"&keyname="+name+"&cusName="+cusName+"&cusId="+cusId,
 						dataType:'json',
 						success:function(data){
 							alert(data.msg2);
@@ -139,6 +139,8 @@ function get(a){
 				<s:select list="#{'5':'续费','6':'不使用'}" onchange="get(this)" headerKey="0" headerValue="—请选择—"/>
 			</s:if>
 			<input type="hidden" value="<s:property value='#k.keywords'/>">
+			<input type="hidden" value="<s:property value='#k.customName'/>">
+			<input type="hidden" value="<s:property value='#k.customId'/>">
 		</td>
     </tr> 
     </s:iterator> 

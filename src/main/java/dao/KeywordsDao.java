@@ -60,4 +60,5 @@ public interface KeywordsDao {
 	//修改使用状态
 	public void updateUse(@Param("isUse")int isUse,
 			  				 @Param("keyname")String keyname);
+	List<Keywords> allkeys();
 }

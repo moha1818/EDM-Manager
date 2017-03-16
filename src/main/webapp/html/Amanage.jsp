@@ -88,11 +88,12 @@ $('#detail').click(function(){
                 </div>
                 <div class="panel-body no-padding">
                     <div class="list-group">
-                        <a href="#" class="list-group-item">待审核<span class="label label-badge label-success">3 stories</span></a>
-                        <a href="#" class="list-group-item">审核中<span class="label label-badge label-primary">3 stories</span></a>
-                        <a href="#" class="list-group-item">审核通过<span class="label label-success label-badge pull-right">10 tasks</span></a>
-                        <a href="#" class="list-group-item">审核不通过<span class="label label-badge label-warning">2 bugs</span></a>
-                        <a href="#" class="list-group-item">过期 <span class="label label-badge label-danger pull-right">100+</span></a>
+                        <a href="#" class="list-group-item">待审核<span class="label label-badge label-success"><s:property value="passStatus.authKeys"/></span></a>
+                        <a href="#" class="list-group-item">审核中<span class="label label-badge label-primary"><s:property value="passStatus.authingKeys"/></span></a>
+                        <a href="#" class="list-group-item">审核通过<span class="label label-success label-badge pull-right"><s:property value="passStatus.passedKeys"/></span></a>
+                        <a href="#" class="list-group-item">审核不通过<span class="label label-badge label-warning"><s:property value="passStatus.noPassedKeys"/></span></a>
+                        <a href="#" class="list-group-item">过期 <span class="label label-badge label-danger pull-right"><s:property value="passStatus.uselessKeys"/></span></a>
+                        <a href="#" class="list-group-item">总审核数<span class="label label-badge label-danger pull-right"><s:property value="passStatus.keywords"/></span></a>
                     </div>
                 </div>
             </div>

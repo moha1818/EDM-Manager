@@ -3,12 +3,15 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Account;
+import entity.Keywords;
 import entity.Logs;
 import entity.User;
+import model.PassStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import service.KeywordsService;
 import service.LogsService;
 import service.impl.AccountServiceImpl;
 import service.impl.UserServiceImpl;
@@ -34,7 +37,10 @@ public class UserAction extends ActionSupport {
 	@Autowired
 	@Qualifier(value = "logsServiceImpl")
 	private LogsService logsServiceImpl;
-	
+
+	@Autowired
+	private KeywordsService keywordsService;
+
 	private Account account;
 	private String usercode;
 	private String password;
@@ -155,7 +161,7 @@ public class UserAction extends ActionSupport {
 		
 		return SUCCESS;
 	}
-	
+
 	//修改密码
 	public String pModify(){
 		
@@ -173,7 +179,10 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 
 	}
-	
+
+
+	private PassStatus passStatus;
+
 	//首页内嵌框架显示上次登录时间
 	public String index(){
 		
@@ -182,12 +191,27 @@ public class UserAction extends ActionSupport {
 		
 		lastLoginT = user.getLastLoginTime();
 		//账户余额
-		account = accountServiceImpl.getAccount(user.getId());
+		//account = accountServiceImpl.getAccount(user.getId());
 		//修改上次登录时间为当前时间
 		userServiceImpl.lastLogin(user.getId());
-
+		List<Keywords> keywordsList=keywordsService.allkeywords();
+		Integer keywords=keywordsList.size();
+		Integer authKeys= Math.toIntExact(keywordsList.stream().filter(Keywords -> Keywords.getIsUse().equals(1) && Keywords.getCheckStatus().equals(0)).count());
+		Integer authingKeys= Math.toIntExact(keywordsList.stream().filter(Keywords ->  Keywords.getIsUse().equals(1) && Keywords.getCheckStatus().equals(1)).count());
+		Integer passedKeys= Math.toIntExact(keywordsList.stream().filter(Keywords ->  Keywords.getIsUse().equals(1) && Keywords.getCheckStatus().equals(2)).count());
+		Integer noPassedKeys= Math.toIntExact(keywordsList.stream().filter(Keywords ->  Keywords.getIsUse().equals(1) && Keywords.getCheckStatus().equals(3)).count());
+		Integer uselessKeys= Math.toIntExact(keywordsList.stream().filter(Keywords ->  Keywords.getIsUse().equals(0)).count());
+		passStatus=new PassStatus(keywords,authKeys,authingKeys,passedKeys,noPassedKeys,uselessKeys);
 		logs=logsServiceImpl.allLogs();
 
 		return SUCCESS;
+	}
+
+	public PassStatus getPassStatus() {
+		return passStatus;
+	}
+
+	public void setPassStatus(PassStatus passStatus) {
+		this.passStatus = passStatus;
 	}
 }
