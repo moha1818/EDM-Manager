@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -26,7 +27,7 @@
 
 <body id="logs">
 
-	<table class="bordered">
+	<table class="table table-hover table-bordered ">
 		<thead>
 			<tr>
 				<th>序号</th>

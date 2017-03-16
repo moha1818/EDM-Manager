@@ -6,10 +6,11 @@ import org.apache.commons.lang3.StringUtils;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.util.Properties;
 import java.util.UUID;
 
 public class Hashsalt {
-
+    private static Properties properties;
     public boolean equals(String password,User user) {
         String encryptPassword = encrypt(password + user.getSalt()); //(3-B)
         if (encryptPassword.compareTo(user.getUserPassword()) == 0) { // (3-C)
@@ -30,8 +31,8 @@ public class Hashsalt {
     }
 
     public String encrypt(String password) {
-        String algorithm = "HmacSHA1";
-        String keyString = "stevenKey3";
+        String algorithm = EnvUtils.getProperty("algorithm");
+        String keyString = EnvUtils.getProperty("stevenKey3");
         SecretKey key = new SecretKeySpec(keyString.getBytes(), algorithm);
 
         try {

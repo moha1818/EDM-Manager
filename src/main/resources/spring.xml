@@ -68,4 +68,5 @@
 		proxy-target-class="true" />
 
 	<import resource="classpath*:spring-email.xml"/>
+	<import resource="classpath*:spring-util.xml"/>
 </beans>
