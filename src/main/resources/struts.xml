@@ -25,7 +25,7 @@
 			<interceptor-stack name="comStack">
 				<!-- 登录拦截器 -->
 				<interceptor-ref name="userlogin">
-					<param name="excludeMethods">login,system,sendEmail</param>
+					<param name="excludeMethods">login,system</param>
 				</interceptor-ref>
 				<!-- 权限拦截器 -->
 				<interceptor-ref name="authority">

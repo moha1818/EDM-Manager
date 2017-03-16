@@ -129,6 +129,11 @@ public class UserAction extends ActionSupport {
 	public String login(){
 		Map<String,Object> session=ActionContext.getContext().getSession();
 		if(session.get("user")==null){
+			String sessionCode = (String) session.get("code");
+			if(!code.equalsIgnoreCase(sessionCode)){
+				msg = "验证码错误";
+				return INPUT;
+			}
 			User user;
 			if(usercode!=null&& !usercode.equals("") && password!=null && !password.equals("")){
 				user = userServiceImpl.login(usercode, password);
@@ -141,11 +146,7 @@ public class UserAction extends ActionSupport {
 			msg = "登录失败，用户名或密码错误";
 			return INPUT;
 		}
-		String sessionCode = (String) session.get("code");
-		if(!code.equalsIgnoreCase(sessionCode)){
-			msg = "验证码错误";
-			return INPUT;
-		}
+
 		session.put("user", user);
 		}
 		String info = "登录系统";
