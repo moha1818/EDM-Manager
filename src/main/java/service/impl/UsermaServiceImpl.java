@@ -2,7 +2,7 @@ package service.impl;
 
 import dao.AccountDao;
 import dao.UsermaDao;
-import entity.Page;
+import model.Page;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -2,7 +2,7 @@ package service;
 
 import entity.Contacts;
 import entity.Customs;
-import entity.Page;
+import model.Page;
 
 import java.util.List;
 

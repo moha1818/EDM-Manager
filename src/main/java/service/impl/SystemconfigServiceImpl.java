@@ -1,7 +1,7 @@
 package service.impl;
 
 import dao.SystemconfigDao;
-import entity.Page;
+import model.Page;
 import entity.Systemconfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

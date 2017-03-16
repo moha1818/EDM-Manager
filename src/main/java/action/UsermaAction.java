@@ -2,7 +2,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import entity.Page;
+import model.Page;
 import entity.Role;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;

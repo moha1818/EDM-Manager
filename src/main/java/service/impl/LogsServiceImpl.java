@@ -3,7 +3,7 @@ package service.impl;
 import com.opensymphony.xwork2.ActionContext;
 import dao.LogsDao;
 import entity.Logs;
-import entity.Page;
+import model.Page;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

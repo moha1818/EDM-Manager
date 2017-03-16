@@ -30,16 +30,16 @@
 <body class="normal">
 	<form action="keywordsList" method="get">
 		<div>
-			关键词：
+			店铺名：
 			<s:textfield name="keywordName" />
-			<a class="btn btn-primary btn-mini sub" href="javascript:void(0);">查询</a>
+			<input type="submit" class="btn btn-primary btn-mini sub" value="查询">
 		</div>
 	</form>
 	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
 				<th>序号</th>
-				<th>关键词</th>
+				<th>店铺名</th>
 				<th>客户名称</th>
 				<th>操作员</th>
 				<th>申请年限</th>

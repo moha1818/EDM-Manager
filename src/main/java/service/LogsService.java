@@ -1,7 +1,7 @@
 package service;
 
 import entity.Logs;
-import entity.Page;
+import model.Page;
 
 import java.util.List;
 

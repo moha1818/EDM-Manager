@@ -4,7 +4,7 @@ package service.impl;
 import dao.CustomsDao;
 import entity.Contacts;
 import entity.Customs;
-import entity.Page;
+import model.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

@@ -80,7 +80,8 @@ function get(a){
   <div id="" class="">
 		<h3 id="h3">店铺名审核</h3>
 		<form class="top" action="keywordsCheck" method="get" >
-			店铺名：<s:textfield name="keywordName" /><a class="btn btn-primary btn-mini submit" href="javascript:void(0);">查询</a>
+			店铺名：<s:textfield name="keywordName" />
+			<input type="submit" class="btn btn-primary submit" value="查询">
 			<%--<span class="green">审核流程：已申请(代理商申请)》审核中》通过》续费</span>&nbsp;|&nbsp;<span class="red">审核流程：已申请(代理商申请)》审核中》不通过</span>
 		--%></form>
 		<div id="" class="">

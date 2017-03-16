@@ -1,6 +1,6 @@
 package service;
 
-import entity.Page;
+import model.Page;
 import entity.Systemconfig;
 import org.apache.ibatis.annotations.Param;
 
