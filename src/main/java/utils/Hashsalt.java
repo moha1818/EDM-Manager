@@ -48,7 +48,7 @@ public class Hashsalt {
         return StringUtils.EMPTY;
     }
 
-    //(4)
+    //byte[] -> string
     private String toHexString(byte[] in) {
         StringBuilder hexString = new StringBuilder();
         for (int i = 0; i < in.length; i++){
