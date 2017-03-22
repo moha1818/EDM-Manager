@@ -10,8 +10,8 @@ import java.util.UUID;
 
 public class Hashsalt {
     public boolean equals(String password,User user) {
-        String encryptPassword = encrypt(password + user.getSalt()); //(3-B)
-        if (encryptPassword.compareTo(user.getUserPassword()) == 0) { // (3-C)
+        String encryptPassword = encrypt(password + user.getSalt());
+        if (encryptPassword.compareTo(user.getUserPassword()) == 0) {
             return true;
         }
 

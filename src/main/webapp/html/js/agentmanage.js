@@ -18,11 +18,11 @@ function confir(a, id) {
 			success : function(data) {
 				if (data.msg == "SUCCESS") {
 					if (text == '停用') {
-						$(a).text(val).css("color", "green");
-						$(a).parent().prev().text(text).css("color", "red");
+						$(a).text(val).attr("class","btn btn-sm btn-success");
+						$(a).parent().prev().children().text(text).attr("class","label label-badge label-warning");
 					} else {
-						$(a).text(val).css("color", "red");
-						$(a).parent().prev().text(text).css("color", "green");
+						$(a).text(val).attr("class","btn btn-sm btn-danger");
+						$(a).parent().prev().children().text(text).attr("class","label label-badge label-success");
 					}
 				} else {
 					alert(text + "失败");
