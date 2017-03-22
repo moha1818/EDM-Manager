@@ -34,7 +34,7 @@
 		<input class="middle1" type="image" src="image/user management/u7.png" width="115" height="33" border="0" onclick="return false" />
 	</div>
 	<div id="" class="">
-		<table  width="980px" border="1" cellpadding="0" cellspacing="0" class="table table-hover table-bordered all">
+		<table  class="table table-hover table-bordered all">
 			<tr class="title">
 				<td>登录帐号</td>
 				<td>用户名称</td>

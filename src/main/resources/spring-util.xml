@@ -9,7 +9,7 @@
     <bean class="utils.EnvUtils" init-method="init" lazy-init="false" scope="singleton">
         <property name="locations">
             <list>
-                <value>classpath*:/*.properties</value>
+                <value>classpath*:/config/*.properties</value>
             </list>
         </property>
         <property name="localOverride" value="true"/>

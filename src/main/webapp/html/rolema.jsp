@@ -18,8 +18,7 @@
 			<a href="javascript:;" class="btn btn-primary" ><i class="icon icon-plus-sign"></i>添加</a>
 		</div>
 		<div id="" class="">
-			<table width="800" border="1" cellpadding="0" cellspacing="0"
-				   class="table table-hover table-bordered all">
+			<table class="table table-hover table-bordered all">
 				<tr class="title">
 					<td>角色名称</td>
 					<td>创建时间</td>

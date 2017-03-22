@@ -11,9 +11,9 @@ body,div,ul,li{
 		.left{
 			float:left;
 			width:170px;
-			height:550px;
+			height:600px;
 			background-color:#EFEFEF;
-			margin:20px 0 0 145px;
+			margin:20px 0 0 45px;
 			border:1px #C5C3C4 solid;
 		}
 		.left ul li{
@@ -25,10 +25,10 @@ body,div,ul,li{
 		}
 		.right{
 			float:right;
-			width:780px;
-			height:550px;
+			width:800px;
+			height:600px;
 			background-color:#EFEFEF;
-			margin:20px 125px 0 0;
+			margin:20px 225px 0 0;
 			border:1px #C5C3C4 solid;
 		}
 		iframe{

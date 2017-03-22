@@ -18,16 +18,16 @@
   </script>
  </head>
  <body>
-  <div id="" class="">
-	<div id="" class="left">
+  <div  class="">
+	<div  class="left">
 		<ul>
 			<s:iterator value="rolemalist" var="list">
 			<li  ><a class="role" href="featurelist?roleid=<s:property value="#list.id"/>" target="iframe_a" >+<s:property value="#list.roleName"/></a></li>
 			</s:iterator>
 		</ul>
 	</div>
-	<div id="" class="right">
-		<iframe src="" id="iframepage" name="iframe_a" height="530px" width="770px"
+	<div  class="right">
+		<iframe src="" id="iframepage" name="iframe_a" height="98%" width="98%"
 		   frameborder="0"></iframe>
 	</div>
   </div>

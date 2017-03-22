@@ -130,7 +130,7 @@ public class UserAction extends ActionSupport {
 		Map<String,Object> session=ActionContext.getContext().getSession();
 		if(session.get("user")==null){
 			String sessionCode = (String) session.get("code");
-			if(!code.equalsIgnoreCase(sessionCode)){
+			if(sessionCode!=null && !sessionCode.equalsIgnoreCase(code)){
 				msg = "验证码错误";
 				return INPUT;
 			}

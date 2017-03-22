@@ -10,11 +10,11 @@
 	rel="stylesheet" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
  <script type="text/javascript" src="js/system management/featurelist.js" ></script>
- 
+	<link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
 </head>
 <body>
 	<div id="" class="">
-		<h4>功能列表</h4>
+		<h2>功能列表</h2>
 		<hr />
 	</div>
 	<s:form action="permission" method="post">
@@ -26,7 +26,7 @@
 			border="0" />
 	</div>
 	<div id="" class="">
-		<table width="680px" border="1" cellpadding="0" cellspacing="0">
+		<table class="table table-hover table-bordered" >
 			<tr class="title">
 				<td><input type="checkbox"  onclick="if(this.checked==true) { checkAll('permission'); } else { clearAll('permission'); }">全选/全不选</td>
 				<td>功能名称</td>

@@ -10,13 +10,12 @@ body,div,form,table,tr,td,ul,li{
 	.top{
 		width:100%;
 		text-align:center;
-		margin:20px 0 0 120px;
+		margin:20px 0 0 0;
 	}
 	.middle{
-		margin:0 0 8px 130px;
+		margin:0 0 8px 0;
 	}
 	.all{
-		margin:0 0 0 133px;
 		border-collapse:collapse;
 		border:1px #C4C4C4 solid;
 		text-align:center;
