@@ -7,7 +7,7 @@ function confir(a, id) {
 	} else {
 		val = '停用'
 	}
-	var username = $(a).parents("tr").find("td").eq(1).text();
+	var username = $(a).parents("tr").find("td").eq(2).text();
 
 	if (confirm('你是否要' + text + '【' + username + '】这个客户吗？')) {
 		$.ajax({
