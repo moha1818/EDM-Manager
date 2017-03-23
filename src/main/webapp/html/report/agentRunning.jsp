@@ -14,7 +14,7 @@
 <s:include value="top.jsp"></s:include>
 <h1>付款流水报表</h1>
 <div id="download">
-<a href="exportExcel?reportType=<s:property value="reportType"/>"><img alt="EXCLE下载" src="image/report/u7.png"></a></div>
+<a href="exportExcel?reportType=<s:property value="reportType"/>&starttime=<s:property value="starttime"/>&endtime=<s:property value="endtime"/>"><img alt="EXCLE下载" src="image/report/u7.png"></a></div>
 			<table class="table table-hover table-bordered">
 			<tr class="title">
 				<td>序号</td>
