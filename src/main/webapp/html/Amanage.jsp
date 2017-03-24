@@ -88,12 +88,12 @@ $('#detail').click(function(){
                 </div>
                 <div class="panel-body no-padding">
                     <div class="list-group">
-                        <a href="#" class="list-group-item">待审核<span class="label label-badge label-info"><s:property value="passStatus.authKeys"/></span></a>
-                        <a href="#" class="list-group-item">审核中<span class="label label-badge label-primary"><s:property value="passStatus.authingKeys"/></span></a>
-                        <a href="#" class="list-group-item">审核通过<span class="label label-success label-badge "><s:property value="passStatus.passedKeys"/></span></a>
-                        <a href="#" class="list-group-item">审核不通过<span class="label label-badge label-danger"><s:property value="passStatus.noPassedKeys"/></span></a>
-                        <a href="#" class="list-group-item">过期 <span class="label label-badge "><s:property value="passStatus.uselessKeys"/></span></a>
-                        <a href="#" class="list-group-item">总审核数<span class="label label-badge label-warning"><s:property value="passStatus.keywords"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">待审核<span class="label label-badge label-info"><s:property value="passStatus.authKeys"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">审核中<span class="label label-badge label-primary"><s:property value="passStatus.authingKeys"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">审核通过<span class="label label-success label-badge "><s:property value="passStatus.passedKeys"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">审核不通过<span class="label label-badge label-danger"><s:property value="passStatus.noPassedKeys"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">过期 <span class="label label-badge "><s:property value="passStatus.uselessKeys"/></span></a>
+                        <a href="keywordsCheck" class="list-group-item">总审核数<span class="label label-badge label-warning"><s:property value="passStatus.keywords"/></span></a>
                     </div>
                 </div>
             </div>
