@@ -25,7 +25,7 @@
 			<interceptor-stack name="comStack">
 				<!-- 登录拦截器 -->
 				<interceptor-ref name="userlogin">
-					<param name="excludeMethods">login,system</param>
+					<param name="excludeMethods">login,system,usera</param>
 				</interceptor-ref>
 				<!-- 权限拦截器 -->
 				<interceptor-ref name="authority">
@@ -189,6 +189,10 @@
 		<action name="updateUser" class="action.UsermaAction" method="updateUser">
 			<result name="success" type="redirect">html/userma</result>
 		</action>
+		<!--第一次密码替换 -->
+		<!--<action name="usera" class="action.UsermaAction" method="usera">
+			<result name="success">userma.jsp</result>
+		</action>-->
 	</package>
 
 	<package name="Agent" namespace="/" extends="default">

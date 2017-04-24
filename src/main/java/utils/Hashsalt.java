@@ -31,7 +31,7 @@ public class Hashsalt {
     //加密
     public String encrypt(String password) {
         String algorithm = EnvUtils.getProperty("algorithm");
-        String keyString = EnvUtils.getProperty("keyString");
+        String keyString =  EnvUtils.getProperty("keyString");
         SecretKey key = new SecretKeySpec(keyString.getBytes(), algorithm);
 
         try {

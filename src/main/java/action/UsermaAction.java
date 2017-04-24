@@ -2,9 +2,9 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import model.Page;
 import entity.Role;
 import entity.User;
+import model.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -227,5 +227,18 @@ public class UsermaAction extends ActionSupport{
 		usermaService.delUser(id);
 		return SUCCESS;
 	}
-	
+
+
+/*	public String usera(){
+		users.setId(1);
+		users.setUserCode("admin");
+		users.setUserName("管理员");
+		users.setUserPassword("123456");
+		users.setLastUpdateTime(new Date());
+		role.setId(1);
+		users.setRole(role);
+		users.setIsStart(1);
+		usermaService.modifyUser(users);
+		return SUCCESS;
+	}*/
 }
