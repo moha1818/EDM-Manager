@@ -24,6 +24,8 @@ import java.util.Map;
 @Scope(scopeName="prototype")
 public class UserAction extends ActionSupport {
 
+	private String max;
+
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
@@ -214,5 +216,13 @@ public class UserAction extends ActionSupport {
 
 	public void setPassStatus(PassStatus passStatus) {
 		this.passStatus = passStatus;
+	}
+
+	public String getMax() {
+		return max;
+	}
+
+	public void setMax(String max) {
+		this.max = max;
 	}
 }

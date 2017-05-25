@@ -1,5 +1,6 @@
 package dao;
 
+import View.BalanceView;
 import entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,7 @@ public interface UserDao {
 	public void lastLogin(@Param("id")int id);
 	
 	//代理商余额报表
-	public List<User> balance();
+	public List<BalanceView> balance();
 	//
 	User selectUserByusercode(String usercode);
 	

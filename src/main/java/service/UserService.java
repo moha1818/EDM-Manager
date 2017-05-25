@@ -1,11 +1,9 @@
 package service;
 
-import java.util.Date;
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
+import View.BalanceView;
 import entity.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -19,5 +17,5 @@ public interface UserService {
 	public void lastLogin(int id);
 	
 	//代理商余额报表
-	public List<User> balance();
+	public List<BalanceView> balance();
 }

@@ -1,6 +1,7 @@
 package service.impl;
 
 
+import View.BalanceView;
 import dao.UserDao;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> balance() {
+	public List<BalanceView> balance() {
 		
-		List<User> list = userDao.balance();
+		List<BalanceView> list = userDao.balance();
 		return list;
 	}
 

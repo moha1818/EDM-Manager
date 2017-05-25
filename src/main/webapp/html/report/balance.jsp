@@ -20,11 +20,11 @@
 				<td>代理商名称</td>
 				<td>账户余额</td>
 			</tr>
-			<s:iterator value="users" var="u" status="status">
+			<s:iterator value="balanceViews" var="u" status="status">
 				<tr>
 					<td><s:property value="#status.index+1"/></td>
 					<td><s:property value="#u.userName"/></td>
-					<td><s:number name="#u.account.money"/></td>
+					<td><s:number name="#u.money"/></td>
 				</tr>
 			</s:iterator>
 			</table>

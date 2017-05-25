@@ -18,7 +18,7 @@
 </update>
 
 <!-- 代理商余额 -->
-<select id="balance" resultMap="balanceMap">
+<select id="balance" resultType="View.BalanceView">
 	select
 		u.id as userid,
 		u.userName as userName,
