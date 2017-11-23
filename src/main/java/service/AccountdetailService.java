@@ -1,11 +1,10 @@
 package service;
 
-import java.util.Date;
-import java.util.List;
-
+import entity.Accountdetail;
 import org.apache.ibatis.annotations.Param;
 
-import entity.Accountdetail;
+import java.util.Date;
+import java.util.List;
 
 public interface AccountdetailService {
 

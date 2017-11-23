@@ -13,6 +13,8 @@ public class Page {
 	private int pageSize;
 	// 记录总数
 	private int totalCount;
+	// 记录总数
+	private int total;
 	// 页码
 	private int pageIndex;
 	//某行数
@@ -66,5 +68,12 @@ public class Page {
 	public void setList(List<?> list) {
 		this.list = list;
 	}
-	
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
 }

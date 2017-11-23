@@ -69,17 +69,48 @@ public class AgentHatAction extends ActionSupport implements Preparable {
 			return INPUT;
 		}
 	}
-
+	private Integer limit;
 	private Page cusPage;// 页
 	private Integer current;// 页数
 	private String name;// 客户姓名
 	// 分页显示客户
 
 	public String pageList() {
+		/*if (current == null) {
+			current = 1;
+		}
+		int pageSize = limit;
+
+		if (name != null) {
+			if (name.equals("")) {
+				name = null;
+			} else {
+				if(current==1){
+					// 添加日志
+					String info = "用户进行客户搜索操作：搜索内容为：" + name;
+					logsServiceImpl.addLogs(info);
+				}
+			}
+		}else{
+			if(current==1){
+				// 添加日志
+				String info = "用户进行代理商客户管理查看操作";
+				logsServiceImpl.addLogs(info);
+			}
+		}
+		cusPage = customsServiceImpl.getPage(pageSize, current, name);*/
+		return SUCCESS;
+	}
+
+	public String boot(){
+		return SUCCESS;
+	}
+
+	public String pages(){
 		if (current == null) {
 			current = 1;
 		}
-		int pageSize = 10;
+		int pageSize = limit;
 
 		if (name != null) {
 			if (name.equals("")) {
@@ -355,4 +386,11 @@ public class AgentHatAction extends ActionSupport implements Preparable {
 		this.province = province;
 	}
 
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
 }

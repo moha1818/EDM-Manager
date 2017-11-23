@@ -18,6 +18,7 @@
 <form action="getReport" method="get">
 <div id="box">
 操作类型：<s:select name="reportType" list="#{
+                        'balance':'余额',
 						'preRunning':' 预付款流水报表',
 						'agentRunning':'付款流水报表'
 					}"  listKey="key" listValue="value"></s:select>					 

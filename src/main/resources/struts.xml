@@ -233,6 +233,9 @@
 		<action name="see_cus" class="action.AgentHatAction" method="modify_show">
 			<result>see_customer.jsp</result>
 		</action>
+		<action name="boot" class="action.AgentHatAction" method="boot">
+			<result>bootstraptable.jsp</result>
+		</action>
 		<!-- 显示关键词申请页面 -->
 		<action name="keywords_application" class="action.AgentKeyAction">
 			<result>keywords_application.jsp</result>
@@ -252,6 +255,11 @@
 		<action name="city" class="action.AgentHatAction" method="findcity">
 			<result type="json">
 				<param name="root">citys</param>
+			</result>
+		</action>
+		<action name="page" class="action.AgentHatAction" method="pages">
+			<result type="json">
+				<param name="root">cusPage</param>
 			</result>
 		</action>
 		<action name="selectRole" class="action.RolemaAction" method="selectRole">

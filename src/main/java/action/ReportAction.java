@@ -1,31 +1,28 @@
 package action;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import View.BalanceView;
+import com.opensymphony.xwork2.ActionSupport;
+import entity.Accountdetail;
+import entity.ProductCount;
+import entity.User;
+import eums.ViewString;
+import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.ActionSupport;
-
-import entity.Accountdetail;
-import entity.ProductCount;
-import entity.User;
 import service.impl.AccountdetailServiceImpl;
 import service.impl.ProductCountServiceImpl;
 import service.impl.UserServiceImpl;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @Controller(value = "reportAction")
 @Scope(scopeName = "prototype")
@@ -47,6 +44,7 @@ public class ReportAction extends ActionSupport {
 
 	private String reportType;
 	private List<User> users;
+	private List<BalanceView> balanceViews;
 	private List<Accountdetail> detail;
 	private List<ProductCount> product;
 	private Date starttime;
@@ -63,7 +61,7 @@ public class ReportAction extends ActionSupport {
 	public String getReport() {
 
 		if (reportType.equals("balance")) {
-			users = userServiceImpl.balance();
+			balanceViews = userServiceImpl.balance();
 
 			return "balance";
 		}
@@ -103,27 +101,23 @@ public class ReportAction extends ActionSupport {
 		HSSFCell cell;
 
 		if (reportType.equals("balance")) {
+			BalanceView balanceViewm=new BalanceView();
+			int s=0;
+			for(Field field:balanceViewm.getClass().getDeclaredFields()){
+				cell = row.createCell(s);
+				cell.setCellValue(ViewString.valueOf(field.getName()).getValue());
+				cell.setCellStyle(style);
+				s++;
+			}
 
-			cell = row.createCell(0);
-			cell.setCellValue("序号");
-			cell.setCellStyle(style);
-
-			cell = row.createCell(1);
-			cell.setCellValue("代理商名称");
-			cell.setCellStyle(style);
-
-			cell = row.createCell(2);
-			cell.setCellValue("账户余额");
-			cell.setCellStyle(style);
-
-			users = userServiceImpl.balance();
-			if (users.size() >= 1) {
-				for (int i = 1; i <= users.size(); i++) {
+			balanceViews = userServiceImpl.balance();
+			if (balanceViews.size() >= 1) {
+				for (int i = 1; i <= balanceViews.size(); i++) {
 					row = sheet.createRow(i);
-					User user = users.get(i - 1);
+					BalanceView balanceView = balanceViews.get(i - 1);
 					row.createCell(0).setCellValue(i);
-					row.createCell(1).setCellValue(user.getUserName());
-					row.createCell(2).setCellValue(user.getAccount().getMoney());
+					row.createCell(1).setCellValue(balanceView.getUserName());
+					row.createCell(2).setCellValue(balanceView.getMoney());
 				}
 			}
 			
@@ -261,6 +255,56 @@ public class ReportAction extends ActionSupport {
 		}
 	}
 
+	private void excleExport() throws IOException {
+		// 第一步，创建一个webbook，对应一个Excel文件
+		HSSFWorkbook wb = new HSSFWorkbook();
+		// 第二步，在webbook中添加一个sheet，对应Excel文件中的 sheet
+		HSSFSheet sheet = wb.createSheet("测试表格1");
+		// 第三步，在sheet中添加表头第0行，注意老版本poi对Excel的行数列数有限制
+		HSSFRow row = sheet.createRow(0);
+		// 第四步，创建单元格样式：居中
+		HSSFCellStyle style = wb.createCellStyle();
+		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		// 第五步，创建表头单元格，并设置样式
+		HSSFCell cell;
+
+		cell = row.createCell(0);
+		cell.setCellValue("序号");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(1);
+		cell.setCellValue("代理商名称");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(2);
+		cell.setCellValue("账户余额");
+		cell.setCellStyle(style);
+
+		balanceViews = userServiceImpl.balance();
+		if (balanceViews.size() >= 1) {
+			for (int i = 1; i <= balanceViews.size(); i++) {
+				row = sheet.createRow(i);
+				BalanceView balanceView = balanceViews.get(i - 1);
+				row.createCell(0).setCellValue(i);
+				row.createCell(1).setCellValue(balanceView.getUserName());
+				row.createCell(2).setCellValue(balanceView.getMoney());
+			}
+		}
+
+		excelFileName = "reportBalance.xls"; // 设置下载的文件名
+
+
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+		wb.write(os);
+
+		byte[] fileContent = os.toByteArray();
+		ByteArrayInputStream is = new ByteArrayInputStream(fileContent);
+
+		excelStream = is; // 文件流
+
+	}
+
 	public InputStream getExcelStream() {
 		return excelStream;
 	}
@@ -341,4 +385,11 @@ public class ReportAction extends ActionSupport {
 		this.endtime = endtime;
 	}
 
+	public List<BalanceView> getBalanceViews() {
+		return balanceViews;
+	}
+
+	public void setBalanceViews(List<BalanceView> balanceViews) {
+		this.balanceViews = balanceViews;
+	}
 }

@@ -8,11 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
     <link rel="stylesheet" type="text/css" href="css/agentmanage/2.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-table.min.css">
     <link type="text/css" rel="stylesheet" href="dist/css/zui.css" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/agentmanage.js"></script>
 	<script src="dist/js/zui.js"></script>
-    <script type="text/javascript" src="js/bootstrap/js/bootstrapq.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript" src="static/jquery.form.js"></script>
 <script type="text/javascript">
 window.onload = function(){
@@ -68,7 +72,9 @@ window.onload = function(){
 		<a class="btn btn-primary"  href="javascript:void(0);" id="add"><i class="icon icon-plus-sign"></i>添加企业</a>
         <button onclick="sendEmail()" class="btn btn-info">发送邮件</button>
 	</div>
-	<table class="table table-hover table-bordered">
+
+	<table id="table"></table>
+	<%--<table data-toggle="table">
 		<thead>
 			<tr>
                 <th><input type="checkbox" id="selectAll"></th>
@@ -161,7 +167,7 @@ window.onload = function(){
 				href="pageList?current=<s:property value="cusPage.pageCount"/>&name=<s:property value="#parameters.name"/>">尾页</a></li>
 		</ul>
 	</div>
-
+--%>
     <!-- page specific plugin scripts -->
     <script src="static/enterprises/js/jquery-ui.custom.js"></script>
     <script src="static/enterprises/js/jquery.ui.touch-punch.js"></script>
@@ -193,6 +199,46 @@ window.onload = function(){
     <script src="static/enterprises/js/ace.widget-on-reload.js"></script>
     <script src="static/enterprises/js/ace.searchbox-autocomplete.js"></script>
     <script type="text/javascript">
+        $(function(){
+            $("#table").bootstrapTable({
+                url: 'http://localhost:8888/html/page', //请求后台的URL（*）
+                contentType: "application/x-www-form-urlencoded", //用post请求，这个是必须条件，必须加上，get可以不用，亲测
+                dataType: "json",
+                method: 'get', //请求方式（*）
+                toolbar: '#toolbar', //工具按钮用哪个容器
+                striped: true, //是否显示行间隔色
+                cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                sortable: false, //是否启用排序
+                sortOrder: "asc", //排序方式
+                pagination: true,//显示分页
+                pageSize: 2,//默认分页数量
+                queryParamsType: "limit",
+                queryParams: queryParams, //传递参数（*）
+                sidePagination: 'server',//必选
+                showExport: true,
+                exportTypes: ['excel', 'txt'],
+                exportDataType: "all",
+                dataField:"list",
+                dataLevel:2,
+                columns: [
+                    {field: 'agentId',title: '奖励ID',align: "center"},
+                    {field: 'agentCode',title: '订单类型',align: "center"},
+                    {field: 'agentName',title: '买家公司名',align: "center"},
+                    {field: 'regDatetime',title: '创建时间',align: "center"},
+                    {field: 'customName',title: '状态',align: "center"}
+                ]
+            })
+        })
+
+        function queryParams(params) {
+            var temp = { //这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+                limit: params.limit, //页面大小
+                offset: params.offset, //页码
+                portsName: $("#portsName").val(),
+
+            };
+            return temp;
+        }
         var sendEmail = function () {
             var emails = [];
             var ids = [];

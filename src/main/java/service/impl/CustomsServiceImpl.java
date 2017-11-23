@@ -49,6 +49,7 @@ public class CustomsServiceImpl implements CustomsService {
 			cusName=name;
 		}
 		p.setTotalCount(customsDao.count(cusName));
+		p.setTotal(customsDao.count(cusName));
 		p.setList(customsDao.likefind(p.getLineNum(), pageSize, cusName));
 		return p;
 	}
