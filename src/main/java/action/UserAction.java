@@ -127,6 +127,7 @@ public class UserAction extends ActionSupport {
 	public String system(){
 		return SUCCESS;
 	}
+
 	//登录
 	public String login(){
 		Map<String,Object> session=ActionContext.getContext().getSession();
@@ -153,10 +154,13 @@ public class UserAction extends ActionSupport {
 		}
 		String info = "登录系统";
 		logsServiceImpl.addLogs(info);
-		
+		msg = "成功";
 		return SUCCESS;
 	}
-	
+
+	public String zhuomian(){
+		return SUCCESS;
+	}
 	//退出
 	public String loginOut(){
 		

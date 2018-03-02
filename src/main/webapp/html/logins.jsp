@@ -19,13 +19,17 @@
             $(".clickCode").click(function () {
                 $("#imageCode").attr("src", "codes.jsp?id=" + Math.random());
             });
+
+            $(".subutton").click(function(){
+                formSubmit();
+            })
         });
 
         function formSubmit() {
             var userName = $(".name").val();
             var password = $(".password").val();
             var code = $(".validateCode").val();
-            if(userName=null || userName==''||userName=='用户名'){
+            if(userName==null || userName==''||userName=='用户名'){
                 alert('用户名不能为空!');
                 $(".name").focus();
                 return false;
@@ -38,8 +42,23 @@
                 $(".validateCode").focus();
                 return false;
             }
-            this.loginForm.submit();
+
+            $.ajax({
+                 url: 'login',
+                 async: false,
+                 type: "get",
+                 data:  "usercode="+userName+"&password="+password+"&code="+code,
+                 dataType:'json',
+                 success: function (data) {
+                     if(data == "成功"){
+                         window.parent.location.href='/html/main';
+                     }
+               }
+            })
+            //this.loginForm.submit();
         }
+
+
         function keydown(e){
             var explorer = window.navigator.userAgent ;
             //ie //Chrome
@@ -62,15 +81,15 @@
 </head>
 <body>
 <div class="wrap">
-    <div class="header">
-        <h1>集团BOSS后台业务支撑系统</h1>
+    <div class="header" style="height: auto;">
+        <h3>EDM营销管理系统</h3>
     </div>
     <div class="main">
         <div class="main-left">
-            <img src="images/2.png">
+            <img src="images/7.png" style="height: 282px;">
         </div>
         <div class="main-right">
-            <form id="loginForm" action="login" method="post">
+            <form id="loginForm" method="post">
                 <h4>用户登录</h4>            <!-- 注意分区-->
                 <div class="username">
                     <img src="images/3.png">
@@ -82,7 +101,7 @@
                 </div>
                 <div class="vcode">
                     <a href="javascript:void(0);" class="clickCode" tabindex="-1">
-                    <img class="vcodeleft" src="images/updateIcon.png">
+                        <img class="vcodeleft" src="images/updateIcon.png">
                     </a><input type="text" name="code" class="validateCode" placeholder="验证码"/>
                     <div>
                         <img src="codes.jsp"
@@ -91,22 +110,17 @@
                              style="cursor: pointer;" />
                     </div>
                     <br/>
-                    </div>
+                </div>
                 <div class="reminder1">
                     <div class="reminder-left">
                         <input type="checkbox" name="optionButton" />
                         <span>下次自动登录</span>
                     </div>
                 </div>
-                <input type="submit" value="登录" class="button" /><br/>
+                <input type="button" value="登录" class="button subutton" />
+                <br/>
             </form>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="site">
-            <h5>网站声明|帮助中心|关于我们</h5>
-            <p>客服电话：400 100 7979   投诉电话：+86 574 56101088 传真：+86 574 82822981</p>
-            <p>2017 集团网络科技有限公司 版权所有 浙ICP备13023419号</p>
+
         </div>
     </div>
 </div>

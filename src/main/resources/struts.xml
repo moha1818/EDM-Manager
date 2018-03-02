@@ -47,18 +47,22 @@
 		</global-results>
 		
 		<action name="system" class="userAction" method="system">
-			<result>logins.jsp</result>
+			<result>/</result>
 		</action>
 
-		<action name="login" class="userAction" method="login">
+		<!--<action name="login" class="userAction" method="login">
 			<result>mains.jsp</result>
 			<result name="input">logins.jsp</result>
+		</action>-->
+
+		<action name="main" class="action.UserAction" method="zhuomian">
+			<result>mains.jsp</result>
 		</action>
 		<action name="loginOut" class="userAction" method="loginOut">
-			<result>logins.jsp</result>
+			<result type="redirect">/</result>
 		</action>
 		<action name="pModify" class="userAction" method="pModify">
-			<result type="redirect">html/logins.jsp</result>
+			<result type="redirect">/</result>
 			<result name="input">mains.jsp</result>
 		</action>
 		<action name="index" class="userAction" method="index">
@@ -255,6 +259,15 @@
 		<action name="city" class="action.AgentHatAction" method="findcity">
 			<result type="json">
 				<param name="root">citys</param>
+			</result>
+		</action>
+		<!--<action name="login" class="userAction" method="login">
+			<result>mains.jsp</result>
+			<result name="input">logins.jsp</result>
+		</action>-->
+		<action name="login" class="action.UserAction" method="login">
+			<result type="json">
+				<param name="root">msg</param>
 			</result>
 		</action>
 		<action name="page" class="action.AgentHatAction" method="pages">

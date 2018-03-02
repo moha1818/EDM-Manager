@@ -22,7 +22,7 @@
 		.pwdmsg{
 			color:red;
 		}
-		.copyrights{position: absolute;left: 0;top: 5px;width: 200px;padding-right:20px; z-index: 1;}
+		.copyrights{position: absolute;left: 0;top: 5px;width: 300px;padding-right:20px; z-index: 1;}
 		.footer{position: absolute;bottom: 0;z-index: 3;width:100%;height:50px; background: #f9f9f9 ;border: 0;}
 	</style>
 	<script src="js/jquery-3.1.1.min.js"></script>
@@ -38,8 +38,8 @@
 <body>
 <header class="Hui-header cl">
 	<div class="copyrights">
-		<a class="Hui-logo l" href="login"><img src="image/title.png" height="40"></a>
-		<span class="Hui-subtitle l">V1.0</span>
+		<a class="Hui-logo l" href="/"><img src="image/trtr.jpg" height="40"></a>
+		<span class="Hui-subtitle l">邮件营销管理系统 V2.0</span>
 	</div>
 	<ul class="Hui-userbar">
 		<li class="dropDown dropDown_hover"><a href="javascript:" class="dropDown_A">
