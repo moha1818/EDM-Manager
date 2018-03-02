@@ -52,6 +52,8 @@
                  success: function (data) {
                      if(data == "成功"){
                          window.parent.location.href='/html/main';
+                     }else{
+                         alert(data);
                      }
                }
             })

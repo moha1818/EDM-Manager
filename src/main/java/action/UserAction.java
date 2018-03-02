@@ -15,6 +15,7 @@ import service.KeywordsService;
 import service.LogsService;
 import service.impl.AccountServiceImpl;
 import service.impl.UserServiceImpl;
+import utils.Hashsalt;
 
 import java.util.Date;
 import java.util.List;
@@ -135,7 +136,7 @@ public class UserAction extends ActionSupport {
 			String sessionCode = (String) session.get("code");
 			if(sessionCode!=null && !sessionCode.equalsIgnoreCase(code)){
 				msg = "验证码错误";
-				return INPUT;
+				return SUCCESS;
 			}
 			User user;
 			if(usercode!=null&& !usercode.equals("") && password!=null && !password.equals("")){
@@ -143,11 +144,11 @@ public class UserAction extends ActionSupport {
 			}else{
 				user=null;
 				msg = "登录账号密码不得为空";
-				return INPUT;
+				return SUCCESS;
 			}
 		if(user==null){
 			msg = "登录失败，用户名或密码错误";
-			return INPUT;
+			return SUCCESS;
 		}
 
 		session.put("user", user);
@@ -174,9 +175,8 @@ public class UserAction extends ActionSupport {
 		
 		Map<String,Object> session = ActionContext.getContext().getSession();
 		User user = (User) session.get("user");
-		
-		if(!oldpwd.equals(user.getUserPassword())){
-			
+		Hashsalt hashsalt=new Hashsalt();
+		if(!hashsalt.equals(oldpwd,user)){
 			msg2 = "修改失败，当前密码不正确";
 			return INPUT;
 		}
